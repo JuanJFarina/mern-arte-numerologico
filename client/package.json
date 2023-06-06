@@ -2,6 +2,7 @@
   "name": "client",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://mern-arte-numerologico.vercel.app",
   "proxy": "https://mern-arte-numerologico.vercel.app",
   "dependencies": {
     "@emotion/react": "^11.11.0",
