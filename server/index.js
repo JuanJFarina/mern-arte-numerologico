@@ -4,7 +4,7 @@ const apiRoutes = require('./routes/api');
 const app = express();
 const mongoose = require('mongoose');
 
-const MONGODB_URI = process.env.MONGO_URI || 'mongodb+srv://juanjosefarina:1mhohjMJNX2GSkdE@cluster0.gxpghrm.mongodb.net/?retryWrites=true&w=majority';
+const MONGODB_URI = 'mongodb+srv://juanjosefarina:1mhohjMJNX2GSkdE@cluster0.gxpghrm.mongodb.net/?retryWrites=true&w=majority' || process.env.MONGO_URI;
 
 try {
   mongoose
