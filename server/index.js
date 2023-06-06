@@ -16,9 +16,9 @@ catch(error) {
   console.log("Couldn't connect to MongoDB");
 }
 
-app.use('/api', apiRoutes);
 app.use(cors());
 app.use(express.json());
+app.use('/api', apiRoutes);
 
 const PORT = process.env.PORT || 5000;
 
