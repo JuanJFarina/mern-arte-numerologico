@@ -10,7 +10,7 @@
       "dest": "server/$1"
     },
     {
-      "src": "/(.*)",
+      "src": "/client/src/(.*)",
       "dest": "/client/index.html"
     }
   ]
