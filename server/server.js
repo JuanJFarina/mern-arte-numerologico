@@ -4,13 +4,17 @@ const apiRoutes = require('./routes/api');
 const app = express();
 const mongoose = require('mongoose');
 
-const MONGODB_URI = process.env.MONGODB_URI || 'mongodb://localhost/my-database';
+const MONGODB_URI = process.env.MONGO_URI || 'mongodb+srv://juanjosefarina:1mhohjMJNX2GSkdE@cluster0.gxpghrm.mongodb.net/?retryWrites=true&w=majority';
 
-mongoose
-  .connect(MONGODB_URI, { useNewUrlParser: true, useUnifiedTopology: true })
-  .then(() => console.log('Connected to MongoDB'))
-  .catch((error) => console.error('MongoDB connection error:', error));
-
+try {
+  mongoose
+    .connect(MONGODB_URI, { useNewUrlParser: true, useUnifiedTopology: true })
+    .then(() => console.log('Connected to MongoDB'))
+    .catch((error) => console.error('MongoDB connection error:', error));
+}
+catch(error) {
+  console.log("Couldn't connect to MongoDB");
+}
 
 app.use('/api', apiRoutes);
 app.use(cors());
