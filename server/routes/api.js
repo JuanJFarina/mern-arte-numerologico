@@ -2,7 +2,6 @@ const express = require('express');
 const router = express.Router();
 const mongoose = require('mongoose');
 const bcrypt = require('bcrypt');
-let bodyParser = require('body-parser');
 
 const userSchema = new mongoose.Schema({
   useremail: {
