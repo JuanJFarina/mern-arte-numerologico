@@ -3,7 +3,7 @@ import { TextField, Button } from '@mui/material';
 import axios from 'axios';
 import { AuthContext } from './AuthContext';
 
-function LoginForm() {
+function RegisterForm() {
   const { login } = useContext(AuthContext);
   const [useremail, setUseremail] = useState('');
   const [password, setPassword] = useState('');
@@ -18,24 +18,30 @@ function LoginForm() {
     }
   };
 
-  const handleSubmit = async (e) => {
+  const handleRegister = async (e) => {
     e.preventDefault();
     setErrorMsg('');
 
-    try {
-      const response = await axios.post('/api/login', { useremail, password });
-      // Handle successful login, e.g., save token to local storage or state
-      login(response.data.user);
-      console.log('Login successful:', response.data);
-    } catch (error) {
-      // Handle login error, e.g., display error message to the user
-      console.error('Login error:', error);
-      setErrorMsg(error.response.data.message);
+    if(useremail !== '' && password !== '') {
+        try {
+        // Send a request to your backend API to register the user
+        const response = await axios.post('/api/register', { useremail, password });
+
+        // Handle successful registration and login
+        login(response.data.user);
+        console.log('Registration successful:', response.data);
+        } catch (error) {
+        // Handle registration error, e.g., display error message to the user
+        console.error('Registration error:', error);
+        setErrorMsg(error.response.data.message);
+        }
     }
+    setUseremail('');
+    setPassword('');
   };
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form onSubmit={handleRegister}>
       <TextField
         type="text"
         name="useremail"
@@ -57,11 +63,11 @@ function LoginForm() {
         margin="normal"
       />
       <Button type="submit" variant="contained" color="primary" disabled={useremail === '' || password === ''}>
-        Ingresar
+        Registrar
       </Button>
       <span style={{color:'red'}}>{errorMsg}</span>
     </form>
   );
 }
 
-export default LoginForm;
+export default RegisterForm;
