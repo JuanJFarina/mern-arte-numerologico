@@ -48,6 +48,7 @@ router.use(bodyParser.json());
 router.get('/data', (req, res) => {
   // Fetch data from the database or an external API
   const data = { message: 'Hello World Nr ' + Math.floor(Math.random() * 10) };
+  console.log('Here is everything fine, this is the data: ' + data);
   res.json(data);
 });
 
