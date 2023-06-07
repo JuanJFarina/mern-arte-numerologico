@@ -11,7 +11,7 @@ function Header() {
   };
 
   return (
-    <AppBar position="static" className="appBar">
+    <AppBar position="static" className="appBar" id="top">
       <Toolbar className="toolbar">
         <Grid container alignItems="center">
           <Grid item xs={6} sm={4}>

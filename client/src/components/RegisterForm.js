@@ -48,7 +48,7 @@ function RegisterForm() {
         name="useremail"
         value={useremail}
         onChange={handleInputChange}
-        label="Useremail"
+        label="Email"
         variant="outlined"
         fullWidth
         margin="normal"
@@ -59,7 +59,7 @@ function RegisterForm() {
         name="password"
         value={password}
         onChange={handleInputChange}
-        label="Password"
+        label="Contraseña"
         variant="outlined"
         fullWidth
         margin="normal"
