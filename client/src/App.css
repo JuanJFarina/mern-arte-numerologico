@@ -38,8 +38,57 @@ div {
   color: #fff !important;
 }
 
+.navLink:hover {
+  animation: pulse 0.2s;
+}
+
+@keyframes pulse {
+  0% {
+    text-shadow: 0 0 0px #fff;
+  }
+  50% {
+    text-shadow: 0 0 10px #fff;
+  }
+  100% {
+    text-shadow: 0 0 20px #fff;
+  }
+}
+
 #burgerButton {
   display: none;
+}
+
+.sidebar {
+  width: 200px;
+  padding: 20px;
+  position: fixed; /* Add this to position the lines */
+  left: 100px;
+  top: 100px;
+}
+
+.listItem {
+  margin-bottom: -5px;
+  cursor: pointer;
+  background-color: #fff;
+  width: 5px !important;
+  height: 30px !important;
+  border-radius: 50%;
+  position: absolute;
+  left: -15px;
+  transform: scale(0.5) !important;
+  transition: background-color 0.1s;
+}
+
+.listItem:hover {
+  background: radial-gradient(circle at center, #84f 50%, #fff 60%) !important;
+}
+
+.vertical-line {
+  border-left: 2px solid #ccc;
+  width: 5px !important;
+  height: 300px; /* Adjust the height based on padding */
+  position: absolute;
+  top: 30px;
 }
 
 main {
@@ -65,6 +114,12 @@ main h1 {
   color: #fff !important;
 }
 
+@media only screen and (max-width: 719px) {
+  .sidebar {
+    left: 50px;
+  }
+}
+
 @media only screen and (max-width: 576px) {
   #burgerButton {
     display: flex;
@@ -74,5 +129,8 @@ main h1 {
   }
   .navLink {
     display: none !important;
+  }
+  .sidebar {
+    left: 0px;
   }
 }
