@@ -57,7 +57,7 @@ export default function CoupleNumbers() {
     if (/^\d*$/.test(inputValue) && inputValue < 2051) {
       setAnioUno(inputValue);
     }
-  };  
+  };
   const handleDiaDos = (e) => {
     const inputValue = e.target.value;
     if (/^\d*$/.test(inputValue) && inputValue < 32) {
@@ -75,7 +75,7 @@ export default function CoupleNumbers() {
     if (/^\d*$/.test(inputValue) && inputValue < 2051) {
       setAnioDos(inputValue);
     }
-  };  
+  };
 
   return (
     <main className="container-fluid" style={{textAlign:'center'}}>
@@ -93,6 +93,7 @@ export default function CoupleNumbers() {
         <div className="col-1 co-sm-2"></div>
         <div className="col-5 co-sm-4">
           <TextField
+            className="input"
             id="name1"
             label="Nombre 1"
             variant="outlined"
@@ -101,6 +102,7 @@ export default function CoupleNumbers() {
         </div>
         <div className="col-5 co-sm-4">
           <TextField
+            className="input"
             id="name2"
             label="Nombre 2"
             variant="outlined"
@@ -113,6 +115,7 @@ export default function CoupleNumbers() {
         <div className="col-1 co-sm-2"></div>
         <div className="col-5 co-sm-4">
           <TextField
+            className="input"
             id="day1"
             label="Dia"
             variant="outlined"
@@ -122,6 +125,7 @@ export default function CoupleNumbers() {
             onChange={handleDiaUno}
           />
           <TextField
+            className="input"
             id="month1"
             label="Mes"
             variant="outlined"
@@ -131,6 +135,7 @@ export default function CoupleNumbers() {
             onChange={handleMesUno}
           />
           <TextField
+            className="input"
             id="year1"
             label="Año"
             variant="outlined"
@@ -142,6 +147,7 @@ export default function CoupleNumbers() {
         </div>
         <div className="col-5 co-sm-4">
           <TextField
+            className="input"
             id="day2"
             label="Dia"
             variant="outlined"
@@ -151,6 +157,7 @@ export default function CoupleNumbers() {
             onChange={handleDiaDos}
           />
           <TextField
+            className="input"
             id="month2"
             label="Mes"
             variant="outlined"
@@ -160,6 +167,7 @@ export default function CoupleNumbers() {
             onChange={handleMesDos}
           />
           <TextField
+            className="input"
             id="year2"
             label="Año"
             variant="outlined"

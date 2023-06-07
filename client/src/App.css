@@ -1,6 +1,10 @@
 body {
   width: 100vw;
   overflow-x: hidden;
+  background-image: url('./assets/background.webp');
+  background-size: 100% auto;
+  background-repeat: repeat-y;
+  color: #fff !important;
 }
 
 div {
@@ -15,6 +19,9 @@ div {
 .appBar {
   padding: 10px;
   margin-bottom: 0px;
+  color: #fff !important;
+  box-shadow: inset 0px -3px 4px 0px #fff, 0px 0px 4px 3px #fff !important;
+  background-color: rgba(0,0,0,0.2) !important;
 }
 
 .toolbar {
@@ -24,6 +31,7 @@ div {
 .title {
   flex-grow: 1;
   margin-right: 2px;
+  font-size: 30px !important;
 }
 
 .navLink {
@@ -42,9 +50,27 @@ main h1 {
   text-align: center;
 }
 
+.input {
+  background: inherit !important;
+  background-color: rgba(255, 255, 255, 0.5) !important;
+  border-radius: 4px !important;
+  margin: 2px !important;
+}
+
+.input .MuiInputBase-input  {
+  color: #fff !important;
+}
+
+.input  .MuiInputLabel-root {
+  color: #fff !important;
+}
+
 @media only screen and (max-width: 576px) {
   #burgerButton {
     display: flex;
+  }
+  .title {
+    font-size: 20px !important;
   }
   .navLink {
     display: none !important;
