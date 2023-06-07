@@ -37,21 +37,23 @@ function LoginForm() {
   return (
     <form onSubmit={handleSubmit}>
       <TextField
+        className="input"
         type="text"
         name="useremail"
         value={useremail}
         onChange={handleInputChange}
-        label="Useremail"
+        label="Email"
         variant="outlined"
         fullWidth
         margin="normal"
       />
       <TextField
+        className="input"
         type="password"
         name="password"
         value={password}
         onChange={handleInputChange}
-        label="Password"
+        label="Contraseña"
         variant="outlined"
         fullWidth
         margin="normal"

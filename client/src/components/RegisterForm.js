@@ -43,6 +43,7 @@ function RegisterForm() {
   return (
     <form onSubmit={handleRegister}>
       <TextField
+        className="input"
         type="text"
         name="useremail"
         value={useremail}
@@ -53,6 +54,7 @@ function RegisterForm() {
         margin="normal"
       />
       <TextField
+        className="input"
         type="password"
         name="password"
         value={password}

@@ -28,6 +28,7 @@ export default function NameNumbers() {
         </div>
         <div className="col-5 col-sm-4">
         <TextField
+          className="input"
           id="name"
           label="Nombre"
           variant="outlined"

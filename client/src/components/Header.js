@@ -14,12 +14,12 @@ function Header() {
     <AppBar position="static" className="appBar">
       <Toolbar className="toolbar">
         <Grid container alignItems="center">
-          <Grid item xs={6} sm={2}>
+          <Grid item xs={6} sm={4}>
             <Typography variant="h6" className="title">
               Arte Numerológico
             </Typography>
           </Grid>
-          <Grid item xs={6} sm={10}>
+          <Grid item xs={6} sm={8}>
             <Grid container justifyContent="flex-end">
               {/* Hamburger button */}
               <IconButton id="burgerButton" edge="start" color="inherit" aria-label="menu" onClick={toggleDrawer}>

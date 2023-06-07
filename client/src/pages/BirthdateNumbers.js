@@ -18,20 +18,20 @@ export default function BirthdateNumbers() {
       setDia(inputValue);
     }
   };
-  
+
   const handleMonth = (e) => {
     const inputValue = e.target.value;
     if (/^\d*$/.test(inputValue) && inputValue < 13) {
       setMes(inputValue);
     }
   };
-  
+
   const handleYear = (e) => {
     const inputValue = e.target.value;
     if (/^\d*$/.test(inputValue) && inputValue < 2051) {
       setAnio(inputValue);
     }
-  };  
+  };
 
   return (
     <main className="container-fluid">
@@ -42,6 +42,7 @@ export default function BirthdateNumbers() {
         </div>
         <div className="col-5 col-sm-4">
           <TextField
+            className="input"
             id="day"
             label="Dia"
             variant="outlined"
@@ -50,6 +51,7 @@ export default function BirthdateNumbers() {
             value={dia}
             onChange={handleDay}/>
           <TextField
+            className="input"
             id="month"
             label="Mes"
             variant="outlined"
@@ -58,6 +60,7 @@ export default function BirthdateNumbers() {
             value={mes}
             onChange={handleMonth}/>
           <TextField
+            className="input"
             id="year"
             label="Año"
             variant="outlined"
