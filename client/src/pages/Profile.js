@@ -1,5 +1,4 @@
-import React, { useState, useEffect, useContext } from 'react';
-import axios from 'axios';
+import React, { useState, useContext } from 'react';
 import { Button } from '@mui/material';
 import LoginForm from '../components/LoginForm';
 import RegisterForm from '../components/RegisterForm';
