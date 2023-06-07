@@ -1,7 +1,25 @@
 import React from 'react';
 import Sidebar from '../components/Sidebar.js';
+import { reducir, sumar } from '../components/Numerology.js';
 
 export default function Home() {
+  const date = new Date();
+  const dia = date.getDate();
+  const mes = date.getMonth() + 1;
+  const anio = date.getFullYear();
+  const todaysNumber = reducir(sumar([dia, mes, anio]));
+  const diaText = [
+    "Los días 1 son indicio de nuevos comienzos ! Hoy es un gran día para la aventura !",
+    "Los días 2 son para socializar. Ve a ver a tus amigos !",
+    "Los días 3 son excelentes para conversar, dar charlas, o conocer gente nueva.",
+    "Los días 4 son días para organizar o para realizar aquello que hace mucho debes hacer",
+    "Los días 5 son perfectos para divertirse ! Hoy no esperes la misma rutina",
+    "Los días 6 son para ser detallistas. A todos les gustan los detalles, no ?",
+    "Los días 7 son especiales. Hoy puede ser un día mágico !",
+    "Los días 8 son para aprovechar oportunidades. Ve en busca de tus sueños !",
+    "Los días 9 son algo difíciles. Puede que ayudes a alguien o que necesites la ayuda de alguien"
+  ]
+
   return (
     <main className="container-fluid">
       <div className="row">
@@ -9,6 +27,9 @@ export default function Home() {
           <Sidebar />
         </div>
         <div className="col-10 col-sm-8">
+          <h1 className="numeroDelDia">Hoy es un día {todaysNumber} !</h1>
+          <p style={{textAlign:"center"}}>{diaText[todaysNumber-1]}</p>
+          <p style={{textAlign:"center",fontSize:"10px"}}>(recuerda que es importante analizar esto siempre en conjunto con tus propios números)</p>
           <h1 id="section0">¿ Qué es la Numerología ?</h1>
           <p>La numerología es una antigua disciplina que busca asociar un significado a un concepto abstracto relativo a algún número.
             Esto deriva en aplicaciones muy variadas utilizando nombres, nacimientos, fechas, direcciones y más.

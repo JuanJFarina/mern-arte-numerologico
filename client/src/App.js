@@ -22,6 +22,7 @@ function App() {
           <Route path="/couple-numbers" element={<CoupleNumbers />} />
           <Route path="/profile" element={<Profile />} />
         </Routes>
+        <div className="bottom-overlay"></div>
       </div>
     </Router>
   );

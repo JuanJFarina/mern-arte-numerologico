@@ -21,11 +21,51 @@ div {
   margin-bottom: 0px;
   color: #fff !important;
   box-shadow: inset 0px -3px 4px 0px #fff, 0px 0px 4px 3px #fff !important;
-  background-color: rgba(0,0,0,0.2) !important;
+  background-color: rgba(0,0,0,0.5) !important;
 }
 
 .toolbar {
   padding: 5px !important;
+}
+
+.numeroDelDia {
+  text-align: center;
+}
+
+
+
+@keyframes rotating-gradient {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.numeroDelDia {
+  animation : animate 5s linear infinite alternate-reverse;
+}
+
+@keyframes animate {
+  0%{
+    color:white;
+    text-shadow:none;
+  }
+  50%{
+    text-shadow: 0 0 5px white,
+      0 0 20px white,
+      0 0 40px white,
+      0 0 80px white,
+      0 0 160px white
+  }
+  100%{
+    text-shadow: 0 0 5px white,
+      0 0 20px cyan,
+      0 0 40px cyan,
+      0 0 80px cyan,
+      0 0 160px cyan
+  }
 }
 
 .title {
@@ -64,6 +104,18 @@ div {
   position: fixed; /* Add this to position the lines */
   left: 100px;
   top: 100px;
+  opacity: 0.5;
+  transition: opacity 0.2s;
+}
+
+.sidebar:hover {
+  opacity: 1;
+}
+
+.sideItem {
+  margin-left: 25px;
+  font-size: 25px;
+  font-weight: 700;
 }
 
 .listItem {
@@ -76,11 +128,13 @@ div {
   position: absolute;
   left: -15px;
   transform: scale(0.5) !important;
-  transition: background-color 0.1s;
+  transition: background-color 0.1s, color 0.1s;
+  color: rgba(255, 255, 255, 0);
 }
 
 .listItem:hover {
   background: radial-gradient(circle at center, #84f 50%, #fff 60%) !important;
+  color: rgba(255, 255, 255, 1);
 }
 
 .vertical-line {
@@ -114,6 +168,16 @@ main h1 {
   color: #fff !important;
 }
 
+.bottom-overlay {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 50px;
+  background: linear-gradient(to top, rgba(0, 0, 0, 1), transparent);
+  pointer-events: none;
+}
+
 @media only screen and (max-width: 719px) {
   .sidebar {
     left: 50px;
@@ -132,5 +196,6 @@ main h1 {
   }
   .sidebar {
     left: 0px;
+    opacity: 1;
   }
 }
