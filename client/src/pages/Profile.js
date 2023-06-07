@@ -17,7 +17,7 @@ export default function Profile() {
   const fetchData = async () => {
     try {
       const response = await axios.get('https://mern-arte-numerologico-apis.vercel.app/api/data');
-      setData(response.data.message);
+      //setData(response.data.message);
     } catch (error) {
       console.error(error);
     }
