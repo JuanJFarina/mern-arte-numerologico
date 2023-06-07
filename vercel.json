@@ -8,16 +8,19 @@
     },
     {
       "src": "server/**/*.js",
-      "use": "@vercel/node"
+      "use": "@vercel/node",
+      "config": { "includeFiles": "server/dist/**" }
     }
   ],
   "routes": [
     {
       "src": "/api/(.*)",
-      "dest": "server/routes/api.js" },
+      "dest": "server/routes/api.js"
+    },
     {
       "src": "/(.*)",
-      "dest": "client/$1" },
+      "dest": "client/$1"
+    },
     {
       "src": "/static/(.*)",
       "dest": "client/static/$1"
