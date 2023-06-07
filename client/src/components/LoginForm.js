@@ -23,7 +23,7 @@ function LoginForm() {
     setErrorMsg('');
 
     try {
-      const response = await axios.post('/api/login', { useremail, password });
+      const response = await axios.post('https://mern-arte-numerologico-apis.vercel.app/api/login', { useremail, password });
       // Handle successful login, e.g., save token to local storage or state
       login(response.data.user);
       console.log('Login successful:', response.data);

@@ -25,7 +25,7 @@ function RegisterForm() {
     if(useremail !== '' && password !== '') {
         try {
         // Send a request to your backend API to register the user
-        const response = await axios.post('/api/register', { useremail, password });
+        const response = await axios.post('https://mern-arte-numerologico-apis.vercel.app/api/register', { useremail, password });
 
         // Handle successful registration and login
         login(response.data.user);
