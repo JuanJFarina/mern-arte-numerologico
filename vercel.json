@@ -7,9 +7,8 @@
       "config": { "distDir": "build" }
     },
     {
-      "src": "server/**/*.js",
-      "use": "@vercel/node",
-      "config": { "includeFiles": "server/dist/**" }
+      "src": "server/dist/**/*.js",
+      "use": "@vercel/node"
     }
   ],
   "routes": [
@@ -25,5 +24,5 @@
       "src": "/static/(.*)",
       "dest": "client/static/$1"
     }
-  ]  
+  ]
 }
