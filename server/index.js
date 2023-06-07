@@ -4,7 +4,7 @@ const apiRoutes = require('./routes/api.js');
 const app = express();
 const mongoose = require('mongoose');
 
-const MONGODB_URI = 'mongodb://localhost/redacted' || process.env.MONGO_URI;
+const MONGODB_URI = 'mongodb://localhost/redacted' || process.env.MONGODB_URI;
 
 try {
   mongoose
