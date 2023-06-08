@@ -17,8 +17,7 @@ export default function DataCard() {
     const mes = useRef(null);
     const anio = useRef(null);
 
-    const handleName = async (e) => {
-        e.preventDefault();
+    const handleName = async () => {
         console.log(user.useremail + ', ' + nombre.current.value);
         try {
             const response = await axios.put('https://mern-arte-numerologico-apis.vercel.app/api/name', {
@@ -31,8 +30,7 @@ export default function DataCard() {
           }
     };
 
-    const handleBirth = async (e) => {
-        e.preventDefault();
+    const handleBirth = async () => {
         try {
             const response = await axios.put('https://mern-arte-numerologico-apis.vercel.app/api/birth', {
               useremail: user.useremail,
