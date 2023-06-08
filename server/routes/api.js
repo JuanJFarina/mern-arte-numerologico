@@ -15,6 +15,11 @@ const userSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
+  name: {type: String},
+  day: {type: Number},
+  month: {type: Number},
+  year: {type: Number},
+  history: {type: [Object]}
 });
 
 // Hash the password before saving the user
@@ -99,6 +104,64 @@ router.post('/login', async (req, res) => {
     // Handle database query or any other error
     console.error('Login error:', error);
     return res.status(500).json({ message: 'Internal server error' });
+  }
+});
+
+// Update user name
+router.put('/name', async (req, res) => {
+  try {
+    const { useremail, name } = req.body;
+    const user = await User.findOneAndUpdate({ useremail }, { name }, { new: true });
+
+    if (!user) {
+      return res.status(404).json({ message: 'User not found' });
+    }
+
+    res.json(user);
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ message: 'Internal server error' });
+  }
+});
+
+// Update user birthdate
+router.put('/birth', async (req, res) => {
+  try {
+    const { useremail, day, month, year } = req.body;
+    const user = await User.findOneAndUpdate(
+      { useremail },
+      { day, month, year },
+      { new: true }
+    );
+
+    if (!user) {
+      return res.status(404).json({ message: 'User not found' });
+    }
+
+    res.json(user);
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ message: 'Internal server error' });
+  }
+});
+
+// Push a new object into the history array
+router.post('/history', async (req, res) => {
+  try {
+    const { useremail, objectData } = req.body;
+    const user = await User.findOne({ useremail });
+
+    if (!user) {
+      return res.status(404).json({ message: 'User not found' });
+    }
+
+    user.history.push(objectData);
+    await user.save();
+
+    res.json(user);
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ message: 'Internal server error' });
   }
 });
 

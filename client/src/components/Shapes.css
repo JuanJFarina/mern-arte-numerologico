@@ -1,22 +1,35 @@
-.animation-container {
-  width: 100px;
-  height: 100px;
-}
-
-#path {
+.svg-number {
   fill: none;
-  stroke: black;
+  stroke: white;
   stroke-width: 2;
-  stroke-dasharray: 220;
-  stroke-dashoffset: 220;
-  animation: trace 3s linear forwards;
+  stroke-dasharray: 300;
+  stroke-dashoffset: 300;
+  transform-origin: center;
+  animation: trace 5s linear forwards, fade 5s linear forwards;
 }
 
 @keyframes trace {
   0% {
-    stroke-dashoffset: 220;
+    stroke-dashoffset: 300;
   }
   100% {
     stroke-dashoffset: 0;
+  }
+}
+
+@keyframes fade {
+  0% {
+    opacity: 0;
+    transform: scale(0.2) rotate(0deg);
+  }
+  10% {
+    opacity: 0.5;
+  }
+  90% {
+    opacity: 0.5;
+  }
+  100% {
+    opacity: 0;
+    transform: scale(0.8) rotate(22deg);
   }
 }
