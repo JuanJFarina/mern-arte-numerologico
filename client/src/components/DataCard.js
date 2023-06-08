@@ -10,6 +10,8 @@ export default function DataCard() {
     const { login } = useContext(AuthContext);
     const [nameSrc, setNameSrc] = useState(user.name ? edit : confirm);
     const [birthSrc, setBirthSrc] = useState(user.day ? edit : confirm);
+    const [editName, setEditName] = useState(false);
+    const [editBirth, setEditBirth] = useState(false);
     const nombre = useRef(null);
     const dia = useRef(null);
     const mes = useRef(null);
@@ -22,7 +24,7 @@ export default function DataCard() {
               useremail: user.useremail,
               name: nombre.current.value
             });
-            setUser(response.data.user);
+            login(response.data.user);
           } catch(error) {
             console.log(error);
           }
@@ -36,7 +38,7 @@ export default function DataCard() {
               month: mes.current.value,
               year: anio.current.value
             });
-            setUser(response.data.user);
+            login(response.data.user);
           } catch(error) {
             console.log(error);
           }
@@ -45,27 +47,31 @@ export default function DataCard() {
     const toggleName = () => {
         if(nameSrc === edit) {
             setNameSrc(confirm);
+            setEditName(true);
         }
         else {
             handleName();
             setNameSrc(edit);
+            setEditName(false);
         }
     }
 
     const toggleBirth = () => {
         if(birthSrc === edit) {
             setBirthSrc(confirm);
+            setEditBirth(true);
         }
         else {
             handleBirth();
             setBirthSrc(edit);
+            setEditBirth(false);
         }
     }
   return (
     <div className="dataCard">
         <h3>Mis Datos \/</h3>
         <p>Nombre completo:
-            <span>{user.name ? ' ' + user.name : (
+            <span>{editName ? ' ' + user.name : (
                 <TextField
                     className="input profile"
                     id="name"
@@ -77,7 +83,7 @@ export default function DataCard() {
             <img onClick={toggleName} style={{cursor:"pointer",filter:'invert(100%)',width:'20px'}} src={nameSrc} alt="edit" />
         </p>
         <p>Fecha de nacimiento:
-            <span>{user.day ? ` ${user.day}/${user.month}/${user.year}` : (
+            <span>{editBirth ? ` ${user.day}/${user.month}/${user.year}` : (
                 <>
                     <TextField
                         className="input"
