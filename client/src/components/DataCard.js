@@ -22,7 +22,7 @@ export default function DataCard() {
               useremail: user.useremail,
               name: nombre.current.value
             });
-            login(response.data.user);
+            setUser(response.data.user);
           } catch(error) {
             console.log(error);
           }
@@ -36,7 +36,7 @@ export default function DataCard() {
               month: mes.current.value,
               year: anio.current.value
             });
-            login(response.data.user);
+            setUser(response.data.user);
           } catch(error) {
             console.log(error);
           }
@@ -65,7 +65,7 @@ export default function DataCard() {
     <div className="dataCard">
         <h3>Mis Datos \/</h3>
         <p>Nombre completo:
-            <span>{user.name ? user.name : (
+            <span>{user.name ? ' ' + user.name : (
                 <TextField
                     className="input profile"
                     id="name"
@@ -77,7 +77,7 @@ export default function DataCard() {
             <img onClick={toggleName} style={{cursor:"pointer",filter:'invert(100%)',width:'20px'}} src={nameSrc} alt="edit" />
         </p>
         <p>Fecha de nacimiento:
-            <span>{user.day ? `${user.day}/${user.month}/${user.year}` : (
+            <span>{user.day ? ` ${user.day}/${user.month}/${user.year}` : (
                 <>
                     <TextField
                         className="input"
