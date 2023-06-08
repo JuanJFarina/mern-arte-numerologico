@@ -13,6 +13,32 @@ const Profile = React.memo(() => {
     setToLogin(!toLogin);
   };
 
+  const handleName = useCallback(async (name) => {
+    try {
+      const response = await axios.put('https://mern-arte-numerologico-apis.vercel.app/api/name', {
+        useremail: user.useremail,
+        name: name
+      });
+      login(response.data.user);
+    } catch(error) {
+      console.log(error);
+    }
+  }, [user.useremail, login]);
+
+  const handleBirth = useCallback(async (day, month, year) => {
+    try {
+      const response = await axios.put('https://mern-arte-numerologico-apis.vercel.app/api/birth', {
+        useremail: user.useremail,
+        day: day,
+        month: month,
+        year: year
+      });
+      login(response.data.user);
+    } catch(error) {
+      console.log(error);
+    }
+  }, [user.useremail, login]);
+
   return (
     <main className="container-fluid">
       <div className="row">
