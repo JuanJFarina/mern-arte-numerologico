@@ -10,7 +10,7 @@ import BirthdateNumbers from './pages/BirthdateNumbers';
 import CoupleNumbers from './pages/CoupleNumbers';
 import Profile from './pages/Profile';
 import Shapes from './components/Shapes';
-import AuthProvider from './components/AuthContext';
+import { AuthProvider } from './components/AuthContext';
 
 function App() {
   return (
