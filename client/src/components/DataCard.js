@@ -72,7 +72,7 @@ export default function DataCard() {
                     label="Nombre"
                     variant="outlined"
                     size="small"
-                    ref={nombre}/>
+                    inputRef={nombre}/>
             )}</span>
             <img onClick={toggleName} style={{cursor:"pointer",filter:'invert(100%)',width:'20px'}} src={nameSrc} alt="edit" />
         </p>
@@ -86,7 +86,7 @@ export default function DataCard() {
                         variant="outlined"
                         size="small"
                         style={{width:'70px'}}
-                        ref={dia}
+                        inputRef={dia}
                     />
                     <TextField
                         className="input"
@@ -95,7 +95,7 @@ export default function DataCard() {
                         variant="outlined"
                         size="small"
                         style={{width:'70px'}}
-                        ref={mes}
+                        inputRef={mes}
                     />
                     <TextField
                         className="input"
@@ -104,7 +104,7 @@ export default function DataCard() {
                         variant="outlined"
                         size="small"
                         style={{width:'70px'}}
-                        ref={anio}
+                        inputRef={anio}
                     />
                 </>
             )}</span>
