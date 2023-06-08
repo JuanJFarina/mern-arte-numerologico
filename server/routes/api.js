@@ -65,8 +65,8 @@ router.post('/register', async (req, res) => {
       return res.status(400).json({ message: 'El usuario ya existe' });
     }
 
-    // Create a new user
-    const newUser = new User({ useremail, password });
+    // Create a new user with name, day, month, and year fields
+    const newUser = new User({ useremail, password, name: "", day: null, month: null, year: null });
     await newUser.save();
 
     // User registration successful
@@ -112,10 +112,25 @@ router.post('/login', async (req, res) => {
 router.put('/name', async (req, res) => {
   try {
     const { useremail, name } = req.body;
-    const update = { name };
-    const options = { new: true, upsert: true };
+    let user = await User.findOne({ useremail });
 
-    const user = await User.findOneAndUpdate({ useremail }, update, options);
+    if (!user) {
+      return res.status(404).json({ message: 'User not found' });
+    }
+
+    // Check if user has the name field
+    if (!user.name) {
+      // If the name field is missing, update the user to add it
+      user = await User.findOneAndUpdate(
+        { useremail },
+        { name },
+        { new: true, upsert: true }
+      );
+    } else {
+      // If the name field exists, update it
+      user.name = name;
+      await user.save();
+    }
 
     res.json(user);
   } catch (error) {
@@ -146,11 +161,10 @@ router.put('/birth', async (req, res) => {
       );
     } else {
       // If all the fields exist, update them
-      user = await User.findOneAndUpdate(
-        { useremail },
-        { $set: { day, month, year } },
-        { new: true }
-      );
+      user.day = day;
+      user.month = month;
+      user.year = year;
+      await user.save();
     }
 
     res.json(user);
