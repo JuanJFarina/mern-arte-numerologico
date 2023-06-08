@@ -108,14 +108,14 @@ router.post('/login', async (req, res) => {
 });
 
 // Update user name
+// Update user name
 router.put('/name', async (req, res) => {
   try {
     const { useremail, name } = req.body;
-    const user = await User.findOneAndUpdate({ useremail }, { name }, { new: true });
+    const update = { name };
+    const options = { new: true, upsert: true };
 
-    if (!user) {
-      return res.status(404).json({ message: 'User not found' });
-    }
+    const user = await User.findOneAndUpdate({ useremail }, update, options);
 
     res.json(user);
   } catch (error) {
@@ -128,14 +128,29 @@ router.put('/name', async (req, res) => {
 router.put('/birth', async (req, res) => {
   try {
     const { useremail, day, month, year } = req.body;
-    const user = await User.findOneAndUpdate(
-      { useremail },
-      { day, month, year },
-      { new: true }
-    );
+    let user = await User.findOne({ useremail });
 
     if (!user) {
       return res.status(404).json({ message: 'User not found' });
+    }
+
+    // Check if user has the day, month, and year fields
+    const hasFields = user.day && user.month && user.year;
+
+    if (!hasFields) {
+      // If any of the fields are missing, update the user to add them
+      user = await User.findOneAndUpdate(
+        { useremail },
+        { day, month, year },
+        { new: true, upsert: true }
+      );
+    } else {
+      // If all the fields exist, update them
+      user = await User.findOneAndUpdate(
+        { useremail },
+        { $set: { day, month, year } },
+        { new: true }
+      );
     }
 
     res.json(user);
