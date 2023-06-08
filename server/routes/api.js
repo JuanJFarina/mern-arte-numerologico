@@ -99,7 +99,7 @@ router.post('/login', async (req, res) => {
     }
 
     // User found and password matches
-    return res.json({ message: 'Login successful', user: user.toJSON() });
+    return res.json({ message: 'Login successful', user: user.toObject() });
   } catch (error) {
     // Handle database query or any other error
     console.error('Login error:', error);
@@ -107,7 +107,6 @@ router.post('/login', async (req, res) => {
   }
 });
 
-// Update user name
 // Update user name
 router.put('/name', async (req, res) => {
   try {
