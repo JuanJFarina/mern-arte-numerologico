@@ -1,0 +1,22 @@
+.animation-container {
+  width: 100px;
+  height: 100px;
+}
+
+#path {
+  fill: none;
+  stroke: black;
+  stroke-width: 2;
+  stroke-dasharray: 220;
+  stroke-dashoffset: 220;
+  animation: trace 3s linear forwards;
+}
+
+@keyframes trace {
+  0% {
+    stroke-dashoffset: 220;
+  }
+  100% {
+    stroke-dashoffset: 0;
+  }
+}
