@@ -71,7 +71,7 @@ export default function DataCard() {
     <div className="dataCard">
         <h3>Mis Datos \/</h3>
         <p>Nombre completo:
-            <span>{editName ? ' ' + user.name : (
+            <span>{!editName ? ' ' + user.name : (
                 <TextField
                     className="input profile"
                     id="name"
@@ -83,7 +83,7 @@ export default function DataCard() {
             <img onClick={toggleName} style={{cursor:"pointer",filter:'invert(100%)',width:'20px'}} src={nameSrc} alt="edit" />
         </p>
         <p>Fecha de nacimiento:
-            <span>{editBirth ? ` ${user.day}/${user.month}/${user.year}` : (
+            <span>{!editBirth ? ` ${user.day}/${user.month}/${user.year}` : (
                 <>
                     <TextField
                         className="input"
