@@ -88,14 +88,14 @@ router.post('/login', async (req, res) => {
 
     if (!user) {
       // User not found
-      return res.status(401).json({ message: 'Email o contraseña erróneos' });
+      return res.status(401).json({ message: 'La cuenta no existe' });
     }
 
     const isPasswordMatch = await user.comparePassword(password);
 
     if (!isPasswordMatch) {
       // Password doesn't match
-      return res.status(401).json({ message: 'Email o contraseña erróneos' });
+      return res.status(401).json({ message: 'Contraseña incorrecta' });
     }
 
     // User found and password matches
