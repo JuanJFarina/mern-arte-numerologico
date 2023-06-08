@@ -114,7 +114,7 @@ router.put('/name', async (req, res) => {
 
     const updatedUser = await User.findOneAndUpdate(
       { useremail: useremail },
-      { name: name },
+      { $set: { name: name } },
       { new: true },
     );
 
