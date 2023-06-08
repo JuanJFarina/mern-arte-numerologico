@@ -3,11 +3,9 @@ import { AuthContext } from '../components/AuthContext';
 import edit from '../assets/edit.svg';
 import confirm from '../assets/confirm.svg';
 import { TextField } from '@mui/material';
-import axios from 'axios';
 
 export default function DataCard() {
     const { user } = useContext(AuthContext);
-    const { login } = useContext(AuthContext);
     const [nameSrc, setNameSrc] = useState(user.name ? edit : confirm);
     const [birthSrc, setBirthSrc] = useState(user.day ? edit : confirm);
     const [editName, setEditName] = useState(false);
@@ -16,33 +14,6 @@ export default function DataCard() {
     const dia = useRef(null);
     const mes = useRef(null);
     const anio = useRef(null);
-
-    const handleName = async () => {
-        console.log(user.useremail + ', ' + nombre.current.value);
-        try {
-            const response = await axios.put('https://mern-arte-numerologico-apis.vercel.app/api/name', {
-              useremail: user.useremail,
-              name: nombre.current.value
-            });
-            login(response.data.user);
-          } catch(error) {
-            console.log(error);
-          }
-    };
-
-    const handleBirth = async () => {
-        try {
-            const response = await axios.put('https://mern-arte-numerologico-apis.vercel.app/api/birth', {
-              useremail: user.useremail,
-              day: dia.current.value,
-              month: mes.current.value,
-              year: anio.current.value
-            });
-            login(response.data.user);
-          } catch(error) {
-            console.log(error);
-          }
-    };
 
     const toggleName = () => {
         if(nameSrc === edit) {
