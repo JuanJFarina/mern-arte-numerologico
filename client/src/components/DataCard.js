@@ -16,6 +16,7 @@ export default function DataCard() {
     const anio = useRef(null);
 
     const handleName = async () => {
+        console.log(user.useremail + ', ' + nombre.current.value);
         try {
             const response = await axios.put('https://mern-arte-numerologico-apis.vercel.app/api/name', {
               useremail: user.useremail,
