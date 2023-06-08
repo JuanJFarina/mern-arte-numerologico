@@ -5,7 +5,7 @@ import RegisterForm from '../components/RegisterForm';
 import ProfData from '../components/ProfData';
 import { AuthContext } from '../components/AuthContext';
 
-export default function Profile() {
+const Profile = React.memo(() => {
   const [toLogin, setToLogin] = useState(true);
   const { user } = useContext(AuthContext);
 
@@ -35,4 +35,6 @@ export default function Profile() {
       </div>
     </main>
   );
-}
+});
+
+export default Profile;
