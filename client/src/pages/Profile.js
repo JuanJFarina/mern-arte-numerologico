@@ -19,7 +19,8 @@ const Profile = React.memo(() => {
         useremail: user.useremail,
         name: name
       });
-      login(response.data.user);
+      console.log(response.data.user);
+      //login(response.data.user);
     } catch(error) {
       console.log(error);
     }
