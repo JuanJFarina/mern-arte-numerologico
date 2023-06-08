@@ -111,47 +111,39 @@ router.post('/login', async (req, res) => {
 router.put('/name', async (req, res) => {
   try {
     const { useremail, name } = req.body;
-    let user = await User.findOne({ useremail });
 
-    if (!user) {
+    const updatedUser = await User.findOneAndUpdate(
+      { useremail: useremail },
+      { name: name },
+      { new: true },
+    );
+
+    if (!updatedUser) {
       return res.status(404).json({ message: 'User not found' });
     }
 
-    // Keep the existing hashed password
-    const password = user.password;
-
-    user.name = name; // Update the name field
-    user.password = password; // Set the existing hashed password back
-    await user.save();
-
-    res.json(user);
+    res.json(updatedUser);
   } catch (error) {
     console.error(error);
     res.status(500).json({ message: 'Internal server error' });
   }
 });
 
-
 // Update user birthdate
 router.put('/birth', async (req, res) => {
   try {
     const { useremail, day, month, year } = req.body;
-    let user = await User.findOne({ useremail });
+    const updatedUser = await User.findOneAndUpdate(
+      { useremail: useremail },
+      { day: day, month: month, year: year },
+      { new: true },
+    );
 
-    if (!user) {
+    if (!updatedUser) {
       return res.status(404).json({ message: 'User not found' });
     }
 
-    // Keep the existing hashed password
-    const password = user.password;
-    user.password = password; // Set the existing hashed password back
-
-    user.day = day; // Update the day field
-    user.month = month; // Update the month field
-    user.year = year; // Update the year field
-    await user.save();
-
-    res.json(user);
+    res.json(updatedUser);
   } catch (error) {
     console.error(error);
     res.status(500).json({ message: 'Internal server error' });
@@ -162,20 +154,17 @@ router.put('/birth', async (req, res) => {
 router.post('/history', async (req, res) => {
   try {
     const { useremail, objectData } = req.body;
-    const user = await User.findOne({ useremail });
+    const updatedUser = await User.findOneAndUpdate(
+      { useremail: useremail },
+      { $push: { history: objectData } },
+      { new: true }
+    );
 
-    if (!user) {
+    if (!updatedUser) {
       return res.status(404).json({ message: 'User not found' });
     }
 
-    // Keep the existing hashed password
-    const password = user.password;
-    user.password = password; // Set the existing hashed password back
-
-    user.history.push(objectData);
-    await user.save();
-
-    res.json(user);
+    res.json(updatedUser);
   } catch (error) {
     console.error(error);
     res.status(500).json({ message: 'Internal server error' });
