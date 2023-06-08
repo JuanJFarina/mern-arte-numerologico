@@ -22,9 +22,9 @@ export default function DataCard() {
             const response = await axios.put('https://mern-arte-numerologico-apis.vercel.app/api/name', {
               useremail: user.useremail,
               name: nombre.current.value
-            })
-            .then(response => {
-                login(response.data.user)
+            }).then(response => {
+                console.log(response);
+                login(response.user);
             });
           } catch(error) {
             console.log(error);
@@ -38,9 +38,9 @@ export default function DataCard() {
               day: dia.current.value,
               month: mes.current.value,
               year: anio.current.value
-            })
-            .then(response => {
-                login(response.data.user)
+            }).then(response => {
+                console.log(response);
+                login(response.user);
             });
           } catch(error) {
             console.log(error);
