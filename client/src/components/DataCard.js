@@ -1,5 +1,5 @@
 import React, { useState, useRef, useContext } from 'react';
-import { AuthContext } from '../components/AuthContext';
+import { AuthContext } from './components/AuthContext';
 import edit from '../assets/edit.svg';
 import confirm from '../assets/confirm.svg';
 import { TextField } from '@mui/material';
