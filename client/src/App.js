@@ -10,6 +10,7 @@ import BirthdateNumbers from './pages/BirthdateNumbers';
 import CoupleNumbers from './pages/CoupleNumbers';
 import Profile from './pages/Profile';
 import Shapes from './components/Shapes';
+import AuthProvider from './components/AuthContext';
 
 function App() {
   return (
@@ -17,13 +18,15 @@ function App() {
       <div className="App">
         <Header />
         <Shapes />
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/name-numbers" element={<NameNumbers />} />
-          <Route path="/birthdate-numbers" element={<BirthdateNumbers />} />
-          <Route path="/couple-numbers" element={<CoupleNumbers />} />
-          <Route path="/profile" element={<Profile />} />
-        </Routes>
+        <AuthProvider>
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/name-numbers" element={<NameNumbers />} />
+            <Route path="/birthdate-numbers" element={<BirthdateNumbers />} />
+            <Route path="/couple-numbers" element={<CoupleNumbers />} />
+            <Route path="/profile" element={<Profile />} />
+          </Routes>
+        </AuthProvider>
         <div className="bottom-overlay"></div>
       </div>
     </Router>
