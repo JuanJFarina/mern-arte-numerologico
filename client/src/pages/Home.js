@@ -62,7 +62,7 @@ export default function Home() {
               <dd>Decepción</dd>
           </dl>
           <h2 id="section3">El Número 3</h2>
-          <p>El tres nace de la suma/asociación del 1 y el 2, simbolizando la tríada inicio, centro, final.</p>
+          <p>El tres nace de la suma/asociación del 1 y el 2, simbolizando la tríada inicio-centro-final.</p>
           <dl>
             <dt>Aspectos positivos</dt>
               <dd>Optimismo</dd>

@@ -9,12 +9,14 @@ import NameNumbers from './pages/NameNumbers';
 import BirthdateNumbers from './pages/BirthdateNumbers';
 import CoupleNumbers from './pages/CoupleNumbers';
 import Profile from './pages/Profile';
+import Shapes from './components/Shapes';
 
 function App() {
   return (
     <Router>
       <div className="App">
         <Header />
+        <Shapes />
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/name-numbers" element={<NameNumbers />} />

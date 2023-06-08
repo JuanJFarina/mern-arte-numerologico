@@ -164,8 +164,12 @@ main h1 {
   color: #fff !important;
 }
 
-.input  .MuiInputLabel-root {
+.input .MuiInputLabel-root {
   color: #fff !important;
+}
+
+.input.profile.MuiInputBase-input {
+  height: 20px !important;
 }
 
 .bottom-overlay {

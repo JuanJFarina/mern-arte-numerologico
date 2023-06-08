@@ -2,6 +2,7 @@ import React, { useState, useContext } from 'react';
 import { Button } from '@mui/material';
 import LoginForm from '../components/LoginForm';
 import RegisterForm from '../components/RegisterForm';
+import ProfData from '../components/ProfData';
 import { AuthContext } from '../components/AuthContext';
 
 export default function Profile() {
@@ -18,7 +19,7 @@ export default function Profile() {
         <div className="col-1 col-sm-2"></div>
         <div className="col-10 col-sm-8">
           {user ? (
-            <h3 style={{ textAlign: 'center' }}>Logged in as: {user.useremail}</h3>
+            <ProfData />
           ) : toLogin ? (
             <LoginForm />
           ) : (
