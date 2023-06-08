@@ -24,7 +24,7 @@ export default function DataCard() {
               useremail: user.useremail,
               name: nombre.current.value
             });
-            login(response.data.user);
+            updateUser(response.data.user);
           } catch(error) {
             console.log(error);
           }
@@ -38,7 +38,7 @@ export default function DataCard() {
               month: mes.current.value,
               year: anio.current.value
             });
-            login(response.data.user);
+            updateUser(response.data.user);
           } catch(error) {
             console.log(error);
           }
