@@ -117,7 +117,11 @@ router.put('/name', async (req, res) => {
       return res.status(404).json({ message: 'User not found' });
     }
 
+    // Keep the existing hashed password
+    const password = user.password;
+
     user.name = name; // Update the name field
+    user.password = password; // Set the existing hashed password back
     await user.save();
 
     res.json(user);
@@ -126,6 +130,7 @@ router.put('/name', async (req, res) => {
     res.status(500).json({ message: 'Internal server error' });
   }
 });
+
 
 // Update user birthdate
 router.put('/birth', async (req, res) => {
@@ -136,6 +141,10 @@ router.put('/birth', async (req, res) => {
     if (!user) {
       return res.status(404).json({ message: 'User not found' });
     }
+
+    // Keep the existing hashed password
+    const password = user.password;
+    user.password = password; // Set the existing hashed password back
 
     user.day = day; // Update the day field
     user.month = month; // Update the month field
@@ -158,6 +167,10 @@ router.post('/history', async (req, res) => {
     if (!user) {
       return res.status(404).json({ message: 'User not found' });
     }
+
+    // Keep the existing hashed password
+    const password = user.password;
+    user.password = password; // Set the existing hashed password back
 
     user.history.push(objectData);
     await user.save();
