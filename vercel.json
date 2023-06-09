@@ -8,13 +8,11 @@
     }
   ],
   "routes": [
-    {
-      "src": "/(.*)",
-      "dest": "client/$1"
-    },
-    {
-      "src": "/static/(.*)",
-      "dest": "client/static/$1"
-    }
+    { "src": "/name-numbers", "dest": "client/index.html" },
+    { "src": "/birthdate-numbers", "dest": "client/index.html" },
+    { "src": "/couple-numbers", "dest": "client/index.html" },
+    { "src": "/profile", "dest": "client/index.html" },
+    { "src": "/static/(.*)", "dest": "client/static/$1" },
+    { "src": "/(.*)", "dest": "client/index.html" }
   ]
 }

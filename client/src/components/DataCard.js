@@ -2,6 +2,7 @@ import React, { useState, useRef, useContext } from 'react';
 import { AuthContext } from './AuthContext';
 import edit from '../assets/edit.svg';
 import confirm from '../assets/confirm.svg';
+import loading from '../assets/loading.svg';
 import { TextField } from '@mui/material';
 import axios from 'axios';
 
@@ -18,12 +19,19 @@ export default function DataCard() {
     const anio = useRef(null);
 
     const handleName = async () => {
+        setNameSrc(loading);
+        document.getElementById("nameIcon").classList.add("loading");
+        nombre.current.disabled = true;
         try {
             const response = await axios.put('https://mern-arte-numerologico-apis.vercel.app/api/name', {
               useremail: user.useremail,
               name: nombre.current.value
             }).then(response => {
+                nombre.current.disabled = false;
                 login(response.data);
+                setEditName(false);
+                setNameSrc(edit);
+                document.getElementById("nameIcon").classList.remove("loading");
             });
           } catch(error) {
             console.log(error);
@@ -31,14 +39,25 @@ export default function DataCard() {
     };
 
     const handleBirth = async () => {
+        setBirthSrc(loading);
+        document.getElementById("birthIcon").classList.add("loading");
+        dia.current.disabled = true;
+        mes.current.disabled = true;
+        anio.current.disabled = true;
         try {
             const response = await axios.put('https://mern-arte-numerologico-apis.vercel.app/api/birth', {
               useremail: user.useremail,
-              day: dia.current.value,
-              month: mes.current.value,
-              year: anio.current.value
+              day: dia.current.value || 0,
+              month: mes.current.value || 0,
+              year: anio.current.value || 0
             }).then(response => {
+                dia.current.disabled = false;
+                mes.current.disabled = false;
+                anio.current.disabled = false;
                 login(response.data);
+                setEditBirth(false);
+                setBirthSrc(edit);
+                document.getElementById("birthIcon").classList.remove("loading");
             });
           } catch(error) {
             console.log(error);
@@ -52,8 +71,6 @@ export default function DataCard() {
         }
         else {
             handleName();
-            setNameSrc(edit);
-            setEditName(false);
         }
     }
 
@@ -64,15 +81,38 @@ export default function DataCard() {
         }
         else {
             handleBirth();
-            setBirthSrc(edit);
-            setEditBirth(false);
         }
     }
+
+    const dayHandler = (e) => {
+        if((dia.current.value + e.key) <= 31 || e.key === 'Backspace') {
+        }
+        else {
+            e.preventDefault();
+        }
+    }
+
+    const monthHandler = (e) => {
+        if((mes.current.value + e.key) <= 12 || e.key === 'Backspace') {
+        }
+        else {
+            e.preventDefault();
+        }
+    }
+
+    const yearHandler = (e) => {
+        if((anio.current.value + e.key) <= 2050 || e.key === 'Backspace') {
+        }
+        else {
+            e.preventDefault();
+        }
+    }
+
   return (
     <div className="dataCard">
         <h3>Mis Datos \/</h3>
         <p>Nombre completo:
-            <span>{!editName ? ' ' + user.name : (
+            <span>{!editName ? ' ' + user.name + ' ' : (
                 <TextField
                     className="input profile"
                     id="name"
@@ -81,10 +121,16 @@ export default function DataCard() {
                     size="small"
                     inputRef={nombre}/>
             )}</span>
-            <img onClick={toggleName} style={{cursor:"pointer",filter:'invert(100%)',width:'20px'}} src={nameSrc} alt="edit" />
+            <img
+                id="nameIcon"
+                onClick={toggleName}
+                style={{cursor:"pointer",filter:'invert(100%)',width:'20px'}}
+                src={nameSrc}
+                alt="edit"
+            />
         </p>
         <p>Fecha de nacimiento:
-            <span>{!editBirth ? ` ${user.day}/${user.month}/${user.year}` : (
+            <span>{!editBirth ? ` ${user.day}/${user.month}/${user.year} ` : (
                 <>
                     <TextField
                         className="input"
@@ -92,6 +138,7 @@ export default function DataCard() {
                         label="Dia"
                         variant="outlined"
                         size="small"
+                        onKeyDownCapture={dayHandler}
                         style={{width:'70px'}}
                         inputRef={dia}
                     />
@@ -101,6 +148,7 @@ export default function DataCard() {
                         label="Mes"
                         variant="outlined"
                         size="small"
+                        onKeyDownCapture={monthHandler}
                         style={{width:'70px'}}
                         inputRef={mes}
                     />
@@ -110,12 +158,19 @@ export default function DataCard() {
                         label="Año"
                         variant="outlined"
                         size="small"
+                        onKeyDownCapture={yearHandler}
                         style={{width:'70px'}}
                         inputRef={anio}
                     />
                 </>
             )}</span>
-            <img onClick={toggleBirth} style={{cursor:"pointer",filter:'invert(100%)',width:'20px'}} src={birthSrc} alt="edit" />
+            <img
+                id="birthIcon"
+                onClick={toggleBirth}
+                style={{cursor:"pointer",filter:'invert(100%)',width:'20px'}}
+                src={birthSrc}
+                alt="edit"
+            />
         </p>
     </div>
   )
