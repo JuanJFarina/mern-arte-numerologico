@@ -10,15 +10,17 @@ import BirthdateNumbers from './pages/BirthdateNumbers';
 import CoupleNumbers from './pages/CoupleNumbers';
 import Profile from './pages/Profile';
 import Shapes from './components/Shapes';
-import { AuthProvider } from './components/AuthContext';
+import IsLogged from './components/IsLogged.js';
 
 function App() {
+
   return (
     <Router>
       <div className="App">
+        <IsLogged />
         <Header />
         <Shapes />
-        <AuthProvider>
+        <Shapes />
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/name-numbers" element={<NameNumbers />} />
@@ -26,7 +28,6 @@ function App() {
             <Route path="/couple-numbers" element={<CoupleNumbers />} />
             <Route path="/profile" element={<Profile />} />
           </Routes>
-        </AuthProvider>
         <div className="bottom-overlay"></div>
       </div>
     </Router>

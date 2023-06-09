@@ -29,6 +29,8 @@ export default function DataCard() {
             }).then(response => {
                 nombre.current.disabled = false;
                 login(response.data);
+                const userString = JSON.stringify(response.data);
+                document.cookie = `userData=${encodeURIComponent(userString)}; expires=Thu, 31 Dec 2023 23:59:59 UTC; path=/`;
                 setEditName(false);
                 setNameSrc(edit);
                 document.getElementById("nameIcon").classList.remove("loading");
@@ -55,6 +57,8 @@ export default function DataCard() {
                 mes.current.disabled = false;
                 anio.current.disabled = false;
                 login(response.data);
+                const userString = JSON.stringify(response.data);
+                document.cookie = `userData=${encodeURIComponent(userString)}; expires=Thu, 31 Dec 2023 23:59:59 UTC; path=/`;
                 setEditBirth(false);
                 setBirthSrc(edit);
                 document.getElementById("birthIcon").classList.remove("loading");
@@ -84,8 +88,15 @@ export default function DataCard() {
         }
     }
 
+    const nameHandler = (e) => {
+        const nameRegex = /^[A-Za-zÀ-ÖØ-öø-ÿ\s]+$/;
+        if(!nameRegex.test(e.key) && (e.key !== 'Backspace' || e.key !== 'Enter' || e.key !== 'Tab')) {
+            e.preventDefault();
+        }
+    }
+
     const dayHandler = (e) => {
-        if((dia.current.value + e.key) <= 31 || e.key === 'Backspace') {
+        if((dia.current.value + e.key) <= 31 || e.key === 'Backspace' || e.key === 'Enter' || e.key === 'Tab') {
         }
         else {
             e.preventDefault();
@@ -93,7 +104,7 @@ export default function DataCard() {
     }
 
     const monthHandler = (e) => {
-        if((mes.current.value + e.key) <= 12 || e.key === 'Backspace') {
+        if((mes.current.value + e.key) <= 12 || e.key === 'Backspace' || e.key === 'Enter' || e.key === 'Tab') {
         }
         else {
             e.preventDefault();
@@ -101,7 +112,7 @@ export default function DataCard() {
     }
 
     const yearHandler = (e) => {
-        if((anio.current.value + e.key) <= 2050 || e.key === 'Backspace') {
+        if((anio.current.value + e.key) <= 2050 || e.key === 'Backspace' || e.key === 'Enter' || e.key === 'Tab') {
         }
         else {
             e.preventDefault();
@@ -119,6 +130,7 @@ export default function DataCard() {
                     label="Nombre"
                     variant="outlined"
                     size="small"
+                    onKeyDownCapture={nameHandler}
                     inputRef={nombre}/>
             )}</span>
             <img
