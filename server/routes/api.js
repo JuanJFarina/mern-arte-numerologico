@@ -3,6 +3,7 @@ const router = express.Router();
 const mongoose = require('mongoose');
 const bcrypt = require('bcryptjs'); // Use bcryptjs instead of bcrypt
 const bodyParser = require('body-parser');
+const { letrasANumeros, sumar, reducir } = require('./Numerology');// Use Numerology logic
 
 const userSchema = new mongoose.Schema({
   useremail: {
@@ -48,9 +49,38 @@ const User = mongoose.model('User', userSchema);
 
 router.use(bodyParser.json());
 
-router.get('/data', (req, res) => {
-  // Fetch data from the database or an external API
-  const data = { message: 'Hello World Nr ' + Math.floor(Math.random() * 10) };
+router.post('/soloLetras', (req, res) => {
+  const { texto, flag } = req.body;
+  const numero = reducir(sumar(letrasANumeros(texto, flag)));
+  var mensaje = '';
+  switch(flag) {
+    case 0:
+      mensaje = "Numerología de todas las letras";
+      break;
+    case 1:
+      mensaje = "Numerología de solo vocales";
+      break;
+    case 2:
+      mensaje = "Numerología de solo consonantes";
+      break;
+    default:
+      mensaje = "Flag incorrecta, debe ser 0, 1 o 2"
+      break;
+  }
+  const data = {
+    message: mensaje,
+    number: numero
+  };
+  res.json(data);
+});
+
+router.post('/soloNumeros', (req, res) => {
+  const { numeros } = req.body;
+  const numero = reducir(sumar(numeros));
+  const data = {
+    message: 'Numerologia de numeros',
+    number: numero
+  };
   res.json(data);
 });
 
