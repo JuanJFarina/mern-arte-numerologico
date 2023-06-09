@@ -109,8 +109,8 @@ const Shapes = () => {
     <div
       style={{
         position:"fixed",
-        top:(10+(Math.random()*90))+"vh",
-        left:(10+(Math.random()*90))+"vw",
+        top:(10+(Math.random()*80))+"vh",
+        left:(10+(Math.random()*80))+"vw",
         transform:"rotate("+(-45+(Math.random()*90))+"deg)"
       }}
     >
