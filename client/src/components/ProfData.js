@@ -1,9 +1,16 @@
 import React, { useContext } from 'react';
 import { AuthContext } from './AuthContext';
 import DataCard from './DataCard';
+import { Button } from '@mui/material';
 
 export default function ProfData() {
-  const { user } = useContext(AuthContext);
+  const { user, logout } = useContext(AuthContext);
+
+  const logoutHandler = () => {
+    document.cookie = 'userData=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;';
+    logout();
+  }
+
   return (
     <div>
         <h1 style={{textAlign:"center"}}>Hola !</h1>
@@ -12,10 +19,13 @@ export default function ProfData() {
         <ul>
             <li>Análisis de personalidad</li>
             <li>Análisis de talentos (vocacional)</li>
-            <li>Análisis de etapas de vida</li>
+            <li>Análisis de vida</li>
         </ul>
         <p>Además puedes almacenar tu propio historial de numeroscopios y reutilizarlo rápidamente</p>
         <DataCard />
+        <Button variant="contained" color="primary" onClick={logoutHandler}>
+          Cerrar sesión
+        </Button>
     </div>
   )
 }

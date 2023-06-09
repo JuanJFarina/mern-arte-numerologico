@@ -25,8 +25,9 @@ function LoginForm() {
     try {
       const response = await axios.post('https://mern-arte-numerologico-apis.vercel.app/api/login', { useremail, password });
       // Handle successful login, e.g., save token to local storage or state
+      const userString = JSON.stringify(response.data.user);
+      document.cookie = `userData=${encodeURIComponent(userString)}; expires=Thu, 31 Dec 2023 23:59:59 UTC; path=/`;
       login(response.data.user);
-      console.log('Login successful:', response.data);
     } catch (error) {
       // Handle login error, e.g., display error message to the user
       console.error('Login error:', error);
