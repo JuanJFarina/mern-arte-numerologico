@@ -3,7 +3,10 @@ const router = express.Router();
 const mongoose = require('mongoose');
 const bcrypt = require('bcryptjs'); // Use bcryptjs instead of bcrypt
 const bodyParser = require('body-parser');
+const sgMail = require('@sendgrid/mail');
 const { letrasANumeros, sumar, reducir } = require('./Numerology');// Use Numerology logic
+const { crypt, decrypt } = require('./cryptAlgo.js');//crypt and decrypt algorithms
+sgMail.setApiKey('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');
 
 const userSchema = new mongoose.Schema({
   useremail: {
@@ -199,6 +202,35 @@ router.post('/history', async (req, res) => {
     console.error(error);
     res.status(500).json({ message: 'Internal server error' });
   }
+});
+
+router.post('/forgotPassword', async (req, res) => {
+  const { useremail } = req.body;
+
+  const token = crypt(useremail);
+
+  // Send the password reset email
+  const msg = {
+    to: useremail,
+    from: 'juanjosefarina.jjf@gmail.com',
+    subject: 'Reset Contraseña',
+    html: `Por favor haz clic en el enlace para setear temporalmente tu contraseña a "accesoTemporal": <a href="https://mern-arte-numerologico-apis.vercel.app/api/resetPassword/${token}">Reset Contraseña</a>`,
+  };
+
+  sgMail.send(msg);
+});
+
+router.post('/resetPassword', async (req, res) => {
+  const { token } = req.body;
+
+  const email = decrypt(token);
+
+  const updatedUser = await User.findOneAndUpdate(
+    { useremail: email },
+    { $set: { password: 'accesoTemporal' } },
+    { new: true }
+    );
+    res.json(updatedUser);
 });
 
 module.exports = router;

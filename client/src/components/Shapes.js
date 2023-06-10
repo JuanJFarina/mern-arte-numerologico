@@ -98,7 +98,7 @@ const Shapes = () => {
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentShapeIndex((prevIndex) => Math.round(Math.random()*9));
-    }, 4000 + Math.round(Math.random()*4000));
+    }, 4000 + Math.round(Math.random()*6000));
 
     return () => clearInterval(interval);
   }, []);
