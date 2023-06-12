@@ -2,6 +2,9 @@ const express = require('express');
 const cors = require('cors');
 const apiRoutes = require('./routes/api.js');
 const app = express();
+
+app.use(cors());
+
 const mongoose = require('mongoose');
 
 const MONGODB_URI = 'mongodb+srv://vercel-admin-user:nBXBL5H34RrmHSEk@cluster0.gxpghrm.mongodb.net/myFirstDatabase?retryWrites=true&w=majority' || process.env.MONGODB_URI;
@@ -16,7 +19,6 @@ catch(error) {
   console.log("Couldn't connect to MongoDB");
 }
 
-app.use(cors());
 app.use(express.json());
 app.use('/api', apiRoutes);
 
