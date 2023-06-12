@@ -4,9 +4,9 @@ const mongoose = require('mongoose');
 const bcrypt = require('bcryptjs'); // Use bcryptjs instead of bcrypt
 const bodyParser = require('body-parser');
 const sgMail = require('@sendgrid/mail');
+sgMail.setApiKey('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');
 const { letrasANumeros, sumar, reducir } = require('./Numerology');// Use Numerology logic
 const { crypt, decrypt } = require('./cryptAlgo.js');//crypt and decrypt algorithms
-sgMail.setApiKey('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');
 
 const userSchema = new mongoose.Schema({
   useremail: {
