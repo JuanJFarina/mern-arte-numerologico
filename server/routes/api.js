@@ -208,11 +208,7 @@ router.post('/forgotPassword', async (req, res) => {
   try {
     const { useremail } = req.body;
 
-    console.log(useremail);
-
     const token = crypt(useremail);
-
-    console.log(token);
 
     // Send the password reset email
     const msg = {

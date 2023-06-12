@@ -11,7 +11,7 @@ letrasANumeros recibe un string nombre y un flag que acepta por valores
 finalmente retorna un array de numeros correspondientes a las letras solicitadas
 */
 
-export function letrasANumeros(temp, flag) {
+function letrasANumeros(temp, flag) {
   const charMap = {
     a: 1, j: 1, s: 1,
     b: 2, k: 2, t: 2,
@@ -61,13 +61,13 @@ export function letrasANumeros(temp, flag) {
 
 // recibe un array de numeros para sumar y retorna el numero final
 
-export function sumar(array) {
+function sumar(array) {
     return array.reduce((accumulator, number) => accumulator + number, 0);
 }
 
 //recibe un numero y lo reduce a un solo digito
 
-export function reducir(number) {
+function reducir(number) {
   while (number >= 10) {
     let temp = 0;
     while (number > 0) {
