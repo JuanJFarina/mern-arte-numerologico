@@ -7,3 +7,5 @@ function decrypt(cryptedEmail) {
     const splited = cryptedEmail.split('c7D9e3F2g0');
     return splited[1];
 }
+
+module.exports = { crypt, decrypt };
