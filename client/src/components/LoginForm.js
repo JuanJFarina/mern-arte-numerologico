@@ -35,6 +35,13 @@ function LoginForm() {
     }
   };
 
+  const resetPassword = async (e) => {
+    e.preventDefault();
+    await axios.post('https://mern-arte-numerologico-apis.vercel.app/api/forgotPassword', { useremail: useremail })
+    .then(response => console.log(response))
+    .catch(response => console.log(response));
+  }
+
   return (
     <form onSubmit={handleSubmit}>
       <TextField
@@ -63,6 +70,9 @@ function LoginForm() {
         Ingresar
       </Button>
       <span style={{color:'red'}}>{errorMsg}</span>
+      <Button variant="contained" color="primary" onClick={resetPassword} disabled={useremail.length < 8}>
+        Olvidé mi contraseña
+      </Button>
     </form>
   );
 }
