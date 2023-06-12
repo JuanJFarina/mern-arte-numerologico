@@ -5,6 +5,7 @@
   stroke-dasharray: 300;
   stroke-dashoffset: 300;
   transform-origin: center;
+  filter: drop-shadow(0 0 2px #fff);
   animation: trace 5s linear forwards, fade 5s linear forwards;
 }
 
