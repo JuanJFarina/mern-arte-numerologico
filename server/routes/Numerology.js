@@ -78,3 +78,5 @@ function reducir(number) {
   }
   return number;
 }
+
+module.exports = { letrasANumeros, sumar, reducir };
