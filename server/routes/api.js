@@ -205,19 +205,28 @@ router.post('/history', async (req, res) => {
 });
 
 router.post('/forgotPassword', async (req, res) => {
-  const { useremail } = req.body;
+  try {
+    const { useremail } = req.body;
 
-  const token = crypt(useremail);
+    console.log(useremail);
 
-  // Send the password reset email
-  const msg = {
-    to: useremail,
-    from: 'juanjosefarina.jjf@gmail.com',
-    subject: 'Reset Contraseña',
-    html: `Por favor haz clic en el enlace para setear temporalmente tu contraseña a "accesoTemporal": <a href="https://mern-arte-numerologico-apis.vercel.app/api/resetPassword/${token}">Reset Contraseña</a>`,
-  };
+    const token = crypt(useremail);
 
-  sgMail.send(msg);
+    console.log(token);
+
+    // Send the password reset email
+    const msg = {
+      to: useremail,
+      from: 'juanjosefarina.jjf@gmail.com',
+      subject: 'Reset Contraseña',
+      html: `Por favor haz clic en el enlace para setear temporalmente tu contraseña a "accesoTemporal": <a href="https://mern-arte-numerologico-apis.vercel.app/api/resetPassword/${token}">Reset Contraseña</a>`,
+    };
+
+    sgMail.send(msg);
+  }
+  catch (error) {
+    console.log(error);
+  }
 });
 
 router.post('/resetPassword', async (req, res) => {
