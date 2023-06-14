@@ -1,5 +1,12 @@
 const express = require('express');
 const router = express.Router();
+const cors = require('cors');
+// Configure CORS options to allow all origins
+const corsOptions = {
+  origin: '*', // Allow requests from any origin
+  methods: ['GET', 'POST', 'PUT', 'DELETE'], // Specify the allowed HTTP methods
+};
+router.use(cors(corsOptions));
 const mongoose = require('mongoose');
 const bcrypt = require('bcryptjs'); // Use bcryptjs instead of bcrypt
 const bodyParser = require('body-parser');

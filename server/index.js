@@ -1,9 +1,13 @@
 const express = require('express');
 const cors = require('cors');
-const apiRoutes = require('./routes/api.js');
 const app = express();
-
-app.use(cors());
+// Configure CORS options to allow all origins
+const corsOptions = {
+  origin: '*', // Allow requests from any origin
+  methods: ['GET', 'POST', 'PUT', 'DELETE'], // Specify the allowed HTTP methods
+};
+app.use(cors(corsOptions));
+const apiRoutes = require('./routes/api.js');
 
 const mongoose = require('mongoose');
 
