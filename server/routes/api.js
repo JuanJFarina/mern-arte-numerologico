@@ -1,16 +1,5 @@
 const express = require('express');
 const router = express.Router();
-const cors = require('cors');
-router.use(cors());
-router.options('/routes/api/*', (req, res) => {
-  // Set CORS headers
-  res.setHeader('Access-Control-Allow-Origin', '*');
-  res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE');
-  res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
-
-  // Respond with a 200 status code
-  res.sendStatus(200);
-});
 const mongoose = require('mongoose');
 const bcrypt = require('bcryptjs'); // Use bcryptjs instead of bcrypt
 const bodyParser = require('body-parser');
