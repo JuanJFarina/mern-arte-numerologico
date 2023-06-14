@@ -228,6 +228,7 @@ router.post('/forgotPassword', async (req, res) => {
     console.log(msg);
 
     sgMail.send(msg);
+    res.status(200).json({ message: 'Ok'});
   }
   catch (error) {
     console.log("Ocurrió un error dentro del bloque Try: " + error);
