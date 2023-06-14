@@ -1,11 +1,8 @@
 const express = require('express');
 const router = express.Router();
 const cors = require('cors');
-// Configure CORS options to allow all origins
-const corsOptions = {
-  origin: 'https://mern-arte-numerologico.vercel.app', // Allow requests from any origin
-};
-router.use(cors(corsOptions));
+router.use(cors());
+router.options('*', cors());
 const mongoose = require('mongoose');
 const bcrypt = require('bcryptjs'); // Use bcryptjs instead of bcrypt
 const bodyParser = require('body-parser');

@@ -1,11 +1,8 @@
 const express = require('express');
 const cors = require('cors');
 const app = express();
-// Configure CORS options to allow all origins
-const corsOptions = {
-  origin: 'https://mern-arte-numerologico.vercel.app', // Allow requests from any origin
-};
-app.use(cors(corsOptions));
+app.use(cors());
+app.options('*', cors());
 const apiRoutes = require('./routes/api.js');
 
 const mongoose = require('mongoose');
