@@ -3,8 +3,9 @@ const router = express.Router();
 const cors = require('cors');
 // Configure CORS options to allow all origins
 const corsOptions = {
-  origin: '*', // Allow requests from any origin
+  origin: 'https://mern-arte-numerologico.vercel.app', // Allow requests from any origin
   methods: ['GET', 'POST', 'PUT', 'DELETE'], // Specify the allowed HTTP methods
+  allowedHeaders: ['Content-Type', 'Accept'], // Specify the allowed request headers
 };
 router.use(cors(corsOptions));
 const mongoose = require('mongoose');
