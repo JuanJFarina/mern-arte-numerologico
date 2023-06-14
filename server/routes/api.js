@@ -208,7 +208,11 @@ router.post('/forgotPassword', async (req, res) => {
   try {
     const { useremail } = req.body;
 
+    console.log(useremail);
+
     const token = crypt(useremail);
+
+    console.log(token);
 
     // Send the password reset email
     const msg = {
@@ -218,10 +222,12 @@ router.post('/forgotPassword', async (req, res) => {
       html: `Por favor haz clic en el enlace para setear temporalmente tu contraseña a "accesoTemporal": <a href="https://mern-arte-numerologico-apis.vercel.app/api/resetPassword/${token}">Reset Contraseña</a>`,
     };
 
+    console.log(msg);
+
     sgMail.send(msg);
   }
   catch (error) {
-    console.log(error);
+    console.log("Ocurrió un error dentro del bloque Try: " + error);
   }
 });
 
