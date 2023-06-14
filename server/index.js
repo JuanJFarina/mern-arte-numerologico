@@ -2,7 +2,7 @@ const express = require('express');
 const cors = require('cors');
 const app = express();
 app.use(cors());
-app.options('/api/*', (req, res) => {
+app.options('/routes/api/*', (req, res) => {
   // Set CORS headers
   res.setHeader('Access-Control-Allow-Origin', '*');
   res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE');
