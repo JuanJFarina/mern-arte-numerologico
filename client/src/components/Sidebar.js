@@ -10,19 +10,19 @@ export default function Sidebar() {
     const distance = targetY - startingY;
     const duration = 1000; // Adjust the duration as desired
     let start;
-  
+
     const step = (timestamp) => {
       if (!start) start = timestamp;
       const elapsed = timestamp - start;
       const progress = Math.min(elapsed / duration, 1);
       const easeInOutCubic = (t) => t < 0.5 ? 4 * t ** 3 : 1 - ((-2 * t + 2) ** 3) / 2;
       window.scrollTo(0, startingY + distance * easeInOutCubic(progress));
-  
+
       if (elapsed < duration) {
         window.requestAnimationFrame(step);
       }
     };
-  
+
     window.requestAnimationFrame(step);
   };
 
