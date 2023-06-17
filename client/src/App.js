@@ -12,6 +12,18 @@ import Profile from './pages/Profile';
 import Shapes from './components/Shapes';
 import IsLogged from './components/IsLogged.js';
 
+window.addEventListener('DOMContentLoaded', function() {
+  const parallax = document.querySelector('body');
+
+  function updateParallax() {
+    const scrollPosition = window.scrollY;
+    parallax.style.backgroundPositionY = scrollPosition * 0.5 + 'px';
+  }
+
+  window.addEventListener('scroll', updateParallax);
+  updateParallax();
+});
+
 function App() {
 
   return (
