@@ -43,16 +43,18 @@ export default function Home() {
         </div>
         <div className="col-10 col-sm-8">
           <div style={{height: '20vh'}}></div>
-          <h1 className="numeroDelDia">Hoy es un día {todaysNumber} !</h1>
-          <p style={{textAlign:"center"}}>{diaText[todaysNumber-1]}</p>
+          <h1 className="numeroDelDia">Hoy es un día {todaysNumber} !</h1><br /> <br />
+          <p style={{textAlign:'center'}}>&diams; {diaText[todaysNumber-1]}</p>
           {
-            user ? <p style={{textAlign:'center'}}> {diaPersonal[personalNumber-1]} </p> : <p style={{textAlign:"center",fontSize:"10px"}}> (recuerda que es importante analizar esto siempre en conjunto con tus propios números)</p>
+            user ? <p style={{textAlign:'center'}}>&diams; {diaPersonal[personalNumber-1]} </p> : <p style={{textAlign:'center',fontSize:"10px"}}> (recuerda que es importante analizar esto siempre en conjunto con tus propios números)</p>
           }
           <div className="halfPage"></div>
-          <h1 id="section0">¿ Qué es la Numerología ?</h1>
-          <p>La numerología es una antigua disciplina que busca asociar un significado a un concepto abstracto relativo a algún número.
-            Esto deriva en aplicaciones muy variadas utilizando nombres, nacimientos, fechas, direcciones y más.
-            Para entender la Numerología es necesario comprender el significado abstracto de los números, por éso vamos a ver una breve definición de cada uno:</p>
+          <section>
+            <h1 id="section0">¿ Qué es la Numerología ?</h1><br />
+            <p>La numerología es una antigua disciplina que busca asociar un significado a un concepto abstracto relativo a algún número.
+              Esto deriva en aplicaciones muy variadas utilizando nombres, nacimientos, fechas, direcciones y más.
+              Para entender la Numerología es necesario comprender el significado abstracto de los números, por éso vamos a ver una breve definición de cada uno:</p>
+            </section>
           <div className="halfPage"></div>
         </div>
         <div className="col-1 col-sm-2"></div>
@@ -60,20 +62,22 @@ export default function Home() {
       <div className="row">
         <div className="col-1 col-sm-2"></div>
         <div className="col-5 col-sm-4">
-          <h2 id="section1">El número 1</h2>
-          <p>El número uno indica tanto la individualidad como la grupalidad.
-            Se refiere a los comportamientos como "unidad", al "todo", y a los sentimientos asociados a los mismos.</p>
-          <dl>
-            <dt>Aspectos positivos</dt>
-              <dd>Independencia</dd>
-              <dd>Iniciativa</dd>
-            <dt>Aspectos negativos</dt>
-              <dd>Egocentrismo</dd>
-              <dd>Egoísmo</dd>
-            <dt>Aspectos destructivos</dt>
-              <dd>Tiranía</dd>
-              <dd>Intolerancia</dd>
-          </dl>
+          <section>
+            <h2 id="section1">El número 1</h2>
+            <p>El número uno indica tanto la individualidad como la grupalidad.
+              Se refiere a los comportamientos como "unidad", al "todo", y a los sentimientos asociados a los mismos.</p>
+            <dl>
+              <dt>Aspectos positivos</dt>
+                <dd>&diams; Independencia</dd>
+                <dd>&diams; Iniciativa</dd>
+              <dt>Aspectos negativos</dt>
+                <dd>&diams; Egocentrismo</dd>
+                <dd>&diams; Egoísmo</dd>
+              <dt>Aspectos destructivos</dt>
+                <dd>&diams; Tiranía</dd>
+                <dd>&diams; Intolerancia</dd>
+            </dl>
+          </section>
         </div>
         <div className="col-5 col-sm-4"></div>
         <div className="col-1 col-sm-2"></div>
@@ -83,19 +87,21 @@ export default function Home() {
         <div className="col-1 col-sm-2"></div>
         <div className="col-5 col-sm-4"></div>
         <div className="col-5 col-sm-4">
-          <h2 id="section2">El Número 2</h2>
-          <p>El número dos representa la dualidad, el contraste, la rivalidad y la oposición.</p>
-          <dl>
-            <dt>Aspectos positivos</dt>
-              <dd>Generosidad</dd>
-              <dd>Cooperación</dd>
-            <dt>Aspectos negativos</dt>
-              <dd>Timidez</dd>
-              <dd>Dubitación</dd>
-            <dt>Aspectos destructivos</dt>
-              <dd>Cobardía</dd>
-              <dd>Decepción</dd>
-          </dl>
+          <section>
+            <h2 id="section2">El Número 2</h2>
+            <p>El número dos representa la dualidad, el contraste, la rivalidad y la oposición.</p>
+            <dl>
+              <dt>Aspectos positivos</dt>
+                <dd>&diams; Generosidad</dd>
+                <dd>&diams; Cooperación</dd>
+              <dt>Aspectos negativos</dt>
+                <dd>&diams; Timidez</dd>
+                <dd>&diams; Dubitación</dd>
+              <dt>Aspectos destructivos</dt>
+                <dd>&diams; Cobardía</dd>
+                <dd>&diams; Decepción</dd>
+            </dl>
+          </section>
         </div>
         <div className="col-1 col-sm-2"></div>
       </div>
@@ -103,61 +109,21 @@ export default function Home() {
       <div className="row">
         <div className="col-1 col-sm-2"></div>
         <div className="col-5 col-sm-4">
-          <h2 id="section3">El Número 3</h2>
-          <p>El tres nace de la suma/asociación del 1 y el 2, simbolizando la tríada inicio-centro-final.</p>
-          <dl>
-            <dt>Aspectos positivos</dt>
-              <dd>Optimismo</dd>
-              <dd>Expresión</dd>
-            <dt>Aspectos negativos</dt>
-              <dd>Pesimismo</dd>
-              <dd>Represión</dd>
-            <dt>Aspectos destructivos</dt>
-              <dd>Celos</dd>
-              <dd>Hipocresía</dd>
-          </dl>
-        </div>
-        <div className="col-5 col-sm-4"></div>
-        <div className="col-1 col-sm-2"></div>
-      </div>
-      <div className="halfPage"></div>
-      <div className="row">
-        <div className="col-1 col-sm-2"></div>
-        <div className="col-5 col-sm-4"></div>
-        <div className="col-5 col-sm-4">
-          <h2 id="section4">El Número 4</h2>
-          <p>El número cuatro representa el nuevo inicio (1) después del primer fin (3), simbolizado por el cuadrado y asociado a lo ideal y correcto.</p>
-          <dl>
-            <dt>Aspectos positivos</dt>
-              <dd>Honestidad</dd>
-              <dd>Lealtad</dd>
-            <dt>Aspectos negativos</dt>
-              <dd>Rigurosidad</dd>
-              <dd>Terquedad</dd>
-            <dt>Aspectos destructivos</dt>
-              <dd>Violencia</dd>
-              <dd>Crueldad</dd>
-          </dl>
-        </div>
-        <div className="col-1 col-sm-2"></div>
-      </div>
-      <div className="halfPage"></div>
-      <div className="row">
-        <div className="col-1 col-sm-2"></div>
-        <div className="col-5 col-sm-4">
-          <h2 id="section5">El Número 5</h2>
-          <p>El cinco está asociado a los sentidos y las experiencias.</p>
-          <dl>
-            <dt>Aspectos positivos</dt>
-              <dd>Libertad</dd>
-              <dd>Versatilidad</dd>
-            <dt>Aspectos negativos</dt>
-              <dd>Irresponsabilidad</dd>
-              <dd>Mutabilidad</dd>
-            <dt>Aspectos destructivos</dt>
-              <dd>Perversión</dd>
-              <dd>Malevolencia</dd>
-          </dl>
+          <section>
+            <h2 id="section3">El Número 3</h2>
+            <p>El tres nace de la suma/asociación del 1 y el 2, simbolizando la tríada inicio-centro-final.</p>
+            <dl>
+              <dt>Aspectos positivos</dt>
+                <dd>&diams; Optimismo</dd>
+                <dd>&diams; Expresión</dd>
+              <dt>Aspectos negativos</dt>
+                <dd>&diams; Pesimismo</dd>
+                <dd>&diams; Represión</dd>
+              <dt>Aspectos destructivos</dt>
+                <dd>&diams; Celos</dd>
+                <dd>&diams; Hipocresía</dd>
+            </dl>
+          </section>
         </div>
         <div className="col-5 col-sm-4"></div>
         <div className="col-1 col-sm-2"></div>
@@ -167,19 +133,21 @@ export default function Home() {
         <div className="col-1 col-sm-2"></div>
         <div className="col-5 col-sm-4"></div>
         <div className="col-5 col-sm-4">
-          <h2 id="section6">El Número 6</h2>
-          <p>Es el número de la armonía y la naturaleza simbolizado por el hexágono.</p>
-          <dl>
-            <dt>Aspectos positivos</dt>
-              <dd>Responsabilidad</dd>
-              <dd>Servicial</dd>
-            <dt>Aspectos negativos</dt>
-              <dd>Ansiedad</dd>
-              <dd>Preocupación</dd>
-            <dt>Aspectos destructivos</dt>
-              <dd>Cinismo</dd>
-              <dd>Tiranía</dd>
-          </dl>
+          <section>
+            <h2 id="section4">El Número 4</h2>
+            <p>El número cuatro representa el nuevo inicio (1) después del primer fin (3), simbolizado por el cuadrado y asociado a lo ideal y correcto.</p>
+            <dl>
+              <dt>Aspectos positivos</dt>
+                <dd>&diams; Honestidad</dd>
+                <dd>&diams; Lealtad</dd>
+              <dt>Aspectos negativos</dt>
+                <dd>&diams; Rigurosidad</dd>
+                <dd>&diams; Terquedad</dd>
+              <dt>Aspectos destructivos</dt>
+                <dd>&diams; Violencia</dd>
+                <dd>&diams; Crueldad</dd>
+            </dl>
+          </section>
         </div>
         <div className="col-1 col-sm-2"></div>
       </div>
@@ -187,61 +155,21 @@ export default function Home() {
       <div className="row">
         <div className="col-1 col-sm-2"></div>
         <div className="col-5 col-sm-4">
-          <h2 id="section7">El Número 7</h2>
-          <p>Es el número que está por encima de lo natural (6), asociado a lo divino y al tiempo.</p>
-          <dl>
-            <dt>Aspectos positivos</dt>
-              <dd>Sabiduría</dd>
-              <dd>Espiritualidad</dd>
-            <dt>Aspectos negativos</dt>
-              <dd>Melancolía</dd>
-              <dd>Frialdad</dd>
-            <dt>Aspectos destructivos</dt>
-              <dd>Deshonestidad</dd>
-              <dd>Infidelidad</dd>
-          </dl>
-        </div>
-        <div className="col-5 col-sm-4"></div>
-        <div className="col-1 col-sm-2"></div>
-      </div>
-      <div className="halfPage"></div>
-      <div className="row">
-        <div className="col-1 col-sm-2"></div>
-        <div className="col-5 col-sm-4"></div>
-        <div className="col-5 col-sm-4">
-          <h2 id="section8">El Número 8</h2>
-          <p>El ocho es también el símbolo del infinito y es la figura del equilibrio y de la integración de todos los contrastes y posibilidades.</p>
-          <dl>
-            <dt>Aspectos positivos</dt>
-              <dd>Autoridad</dd>
-              <dd>Liderazgo</dd>
-            <dt>Aspectos negativos</dt>
-              <dd>Impaciencia</dd>
-              <dd>Crueldad</dd>
-            <dt>Aspectos destructivos</dt>
-              <dd>Opresión</dd>
-              <dd>Injusticia</dd>
-          </dl>
-        </div>
-        <div className="col-1 col-sm-2"></div>
-      </div>
-      <div className="halfPage"></div>
-      <div className="row">
-        <div className="col-1 col-sm-2"></div>
-        <div className="col-5 col-sm-4">
-          <h2 id="section9">El Número 9</h2>
-          <p>El nueve es el último proceso humano dentro de la numerología, culminando una triple triada (3x3) de estados evolutivos.</p>
-          <dl>
-            <dt>Aspectos positivos</dt>
-              <dd>Compasión</dd>
-              <dd>Filantropía</dd>
-            <dt>Aspectos negativos</dt>
-              <dd>Indiscresión</dd>
-              <dd>Disipación</dd>
-            <dt>Aspectos destructivos</dt>
-              <dd>Inmoralidad</dd>
-              <dd>Amargura</dd>
-          </dl>
+          <section>
+            <h2 id="section5">El Número 5</h2>
+            <p>El cinco está asociado a los sentidos y las experiencias.</p>
+            <dl>
+              <dt>Aspectos positivos</dt>
+                <dd>&diams; Libertad</dd>
+                <dd>&diams; Versatilidad</dd>
+              <dt>Aspectos negativos</dt>
+                <dd>&diams; Irresponsabilidad</dd>
+                <dd>&diams; Mutabilidad</dd>
+              <dt>Aspectos destructivos</dt>
+                <dd>&diams; Perversión</dd>
+                <dd>&diams; Malevolencia</dd>
+            </dl>
+          </section>
         </div>
         <div className="col-5 col-sm-4"></div>
         <div className="col-1 col-sm-2"></div>
@@ -251,9 +179,103 @@ export default function Home() {
         <div className="col-1 col-sm-2"></div>
         <div className="col-5 col-sm-4"></div>
         <div className="col-5 col-sm-4">
-          <h2 id="section00">El Número 0</h2>
-          <p>El cero significa lo eterno, el universo, y el crecimiento potencial del que evolucionan los nueve dígitos.
-            Es un símbolo inrepresentable en lo terrenal y, por tanto, se lo asocia a una fuerza creadora superior.</p>
+          <section>
+            <h2 id="section6">El Número 6</h2>
+            <p>Es el número de la armonía y la naturaleza simbolizado por el hexágono.</p>
+            <dl>
+              <dt>Aspectos positivos</dt>
+                <dd>&diams; Responsabilidad</dd>
+                <dd>&diams; Servicial</dd>
+              <dt>Aspectos negativos</dt>
+                <dd>&diams; Ansiedad</dd>
+                <dd>&diams; Preocupación</dd>
+              <dt>Aspectos destructivos</dt>
+                <dd>&diams; Cinismo</dd>
+                <dd>&diams; Tiranía</dd>
+            </dl>
+          </section>
+        </div>
+        <div className="col-1 col-sm-2"></div>
+      </div>
+      <div className="halfPage"></div>
+      <div className="row">
+        <div className="col-1 col-sm-2"></div>
+        <div className="col-5 col-sm-4">
+          <section>
+            <h2 id="section7">El Número 7</h2>
+            <p>Es el número que está por encima de lo natural (6), asociado a lo divino y al tiempo.</p>
+            <dl>
+              <dt>Aspectos positivos</dt>
+                <dd>&diams; Sabiduría</dd>
+                <dd>&diams; Espiritualidad</dd>
+              <dt>Aspectos negativos</dt>
+                <dd>&diams; Melancolía</dd>
+                <dd>&diams; Frialdad</dd>
+              <dt>Aspectos destructivos</dt>
+                <dd>&diams; Deshonestidad</dd>
+                <dd>&diams; Infidelidad</dd>
+            </dl>
+          </section>
+        </div>
+        <div className="col-5 col-sm-4"></div>
+        <div className="col-1 col-sm-2"></div>
+      </div>
+      <div className="halfPage"></div>
+      <div className="row">
+        <div className="col-1 col-sm-2"></div>
+        <div className="col-5 col-sm-4"></div>
+        <div className="col-5 col-sm-4">
+          <section>
+            <h2 id="section8">El Número 8</h2>
+            <p>El ocho es también el símbolo del infinito y es la figura del equilibrio y de la integración de todos los contrastes y posibilidades.</p>
+            <dl>
+              <dt>Aspectos positivos</dt>
+                <dd>&diams; Autoridad</dd>
+                <dd>&diams; Liderazgo</dd>
+              <dt>Aspectos negativos</dt>
+                <dd>&diams; Impaciencia</dd>
+                <dd>&diams; Crueldad</dd>
+              <dt>Aspectos destructivos</dt>
+                <dd>&diams; Opresión</dd>
+                <dd>&diams; Injusticia</dd>
+            </dl>
+          </section>
+        </div>
+        <div className="col-1 col-sm-2"></div>
+      </div>
+      <div className="halfPage"></div>
+      <div className="row">
+        <div className="col-1 col-sm-2"></div>
+        <div className="col-5 col-sm-4">
+          <section>
+            <h2 id="section9">El Número 9</h2>
+            <p>El nueve es el último proceso humano dentro de la numerología, culminando una triple triada (3x3) de estados evolutivos.</p>
+            <dl>
+              <dt>Aspectos positivos</dt>
+                <dd>&diams; Compasión</dd>
+                <dd>&diams; Filantropía</dd>
+              <dt>Aspectos negativos</dt>
+                <dd>&diams; Indiscresión</dd>
+                <dd>&diams; Disipación</dd>
+              <dt>Aspectos destructivos</dt>
+                <dd>&diams; Inmoralidad</dd>
+                <dd>&diams; Amargura</dd>
+            </dl>
+          </section>
+        </div>
+        <div className="col-5 col-sm-4"></div>
+        <div className="col-1 col-sm-2"></div>
+      </div>
+      <div className="halfPage"></div>
+      <div className="row">
+        <div className="col-1 col-sm-2"></div>
+        <div className="col-5 col-sm-4"></div>
+        <div className="col-5 col-sm-4">
+          <section>
+            <h2 id="section00">El Número 0</h2>
+            <p>El cero significa lo eterno, el universo, y el crecimiento potencial del que evolucionan los nueve dígitos.
+              Es un símbolo inrepresentable en lo terrenal y, por tanto, se lo asocia a una fuerza creadora superior.</p>
+          </section>
         </div>
         <div className="col-1 col-sm-2"></div>
       </div>
