@@ -97,7 +97,7 @@ const Shapes = () => {
 
   useEffect(() => {
     const interval = setInterval(() => {
-      setCurrentShapeIndex((prevIndex) => Math.round(Math.random()*9));
+      setCurrentShapeIndex(() => Math.round(Math.random()*9));
     }, 4000 + Math.round(Math.random()*6000));
 
     return () => clearInterval(interval);
@@ -114,7 +114,7 @@ const Shapes = () => {
         transform:"rotate("+(-45+(Math.random()*90))+"deg)"
       }}
     >
-      {CurrentShape && <CurrentShape />}
+      {<CurrentShape />}
     </div>
   )
 };

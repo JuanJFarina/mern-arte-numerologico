@@ -3,36 +3,37 @@ import Sidebar from '../components/Sidebar.js';
 import { reducir, sumar } from '../components/Numerology.js';
 import { AuthContext } from '../components/AuthContext.js';
 
+const date = new Date();
+const dia = date.getDate();
+const mes = date.getMonth() + 1;
+const anio = date.getFullYear();
+const todaysNumber = reducir(sumar([dia, mes, anio]));
+const diaText = [
+  "Los días 1 son indicio de nuevos comienzos ! Hoy es un gran día para la aventura !",
+  "Los días 2 son para socializar. Ve a ver a tus amigos !",
+  "Los días 3 son excelentes para conversar, dar charlas, o conocer gente nueva.",
+  "Los días 4 son días para organizar o para realizar aquello que hace mucho debes hacer",
+  "Los días 5 son perfectos para divertirse ! Hoy no esperes la misma rutina",
+  "Los días 6 son para ser detallistas. A todos les gustan los detalles, no ?",
+  "Los días 7 son especiales. Hoy puede ser un día mágico !",
+  "Los días 8 son para aprovechar oportunidades. Ve en busca de tus sueños !",
+  "Los días 9 son algo difíciles. Puede que ayudes a alguien o que necesites la ayuda de alguien"
+]
+const diaPersonal = [
+  "Tu día personal es 1, así que es un buen día para que des el primer paso !",
+  "Tu día personal es 2, así que aprovecha bien tu paciencia extra",
+  "Tu día personal es 3, hoy quizás expreses más de lo habitual o tengas mucha euforia, así que diviértete !",
+  "Tu día personal es 4, revisa el día universal y tus deberes del día. Hoy es para hacer lo correcto y/o organizar",
+  "Tu día personal es 5, así que quizás sea difícil decir algo sobre tu día; tendrás ganas de hacer cosas distintas !",
+  "Tu día personal es 6, tu detallismo brillará hoy, ponlo en uso según el día universal !",
+  "Tu día personal es 7, no te encierres demasiado pero quizás hoy pienses y reflexiones más de lo habitual",
+  "Tu día personal es 8, la potencia del infinito vibra contigo hoy, tú puedes !",
+  "Tu día personal es 9, hoy darás y/o perderás. Se trata de aprender a soltar"
+]
+
 export default function Home() {
   const { user } = useContext(AuthContext);
-  const date = new Date();
-  const dia = date.getDate();
-  const mes = date.getMonth() + 1;
-  const anio = date.getFullYear();
-  const todaysNumber = reducir(sumar([dia, mes, anio]));
   const personalNumber = user ? reducir(reducir(sumar([user.day,user.month,user.year])) + todaysNumber) : 0;
-  const diaText = [
-    "Los días 1 son indicio de nuevos comienzos ! Hoy es un gran día para la aventura !",
-    "Los días 2 son para socializar. Ve a ver a tus amigos !",
-    "Los días 3 son excelentes para conversar, dar charlas, o conocer gente nueva.",
-    "Los días 4 son días para organizar o para realizar aquello que hace mucho debes hacer",
-    "Los días 5 son perfectos para divertirse ! Hoy no esperes la misma rutina",
-    "Los días 6 son para ser detallistas. A todos les gustan los detalles, no ?",
-    "Los días 7 son especiales. Hoy puede ser un día mágico !",
-    "Los días 8 son para aprovechar oportunidades. Ve en busca de tus sueños !",
-    "Los días 9 son algo difíciles. Puede que ayudes a alguien o que necesites la ayuda de alguien"
-  ]
-  const diaPersonal = [
-    "Tu día personal es 1, así que es un buen día para que des el primer paso !",
-    "Tu día personal es 2, así que aprovecha bien tu paciencia extra",
-    "Tu día personal es 3, hoy quizás expreses más de lo habitual o tengas mucha euforia, así que diviértete !",
-    "Tu día personal es 4, revisa el día universal y tus deberes del día. Hoy es para hacer lo correcto y/o organizar",
-    "Tu día personal es 5, así que quizás sea difícil decir algo sobre tu día; tendrás ganas de hacer cosas distintas !",
-    "Tu día personal es 6, tu detallismo brillará hoy, ponlo en uso según el día universal !",
-    "Tu día personal es 7, no te encierres demasiado pero quizás hoy pienses y reflexiones más de lo habitual",
-    "Tu día personal es 8, la potencia del infinito vibra contigo hoy, tú puedes !",
-    "Tu día personal es 9, hoy darás y/o perderás. Se trata de aprender a soltar"
-  ]
 
   return (
     <main className="container-fluid">
@@ -47,12 +48,12 @@ export default function Home() {
           {
             user ? <p style={{textAlign:'center'}}> {diaPersonal[personalNumber-1]} </p> : <p style={{textAlign:"center",fontSize:"10px"}}> (recuerda que es importante analizar esto siempre en conjunto con tus propios números)</p>
           }
-          <div style={{height: '50vh'}}></div>
+          <div className="halfPage"></div>
           <h1 id="section0">¿ Qué es la Numerología ?</h1>
           <p>La numerología es una antigua disciplina que busca asociar un significado a un concepto abstracto relativo a algún número.
             Esto deriva en aplicaciones muy variadas utilizando nombres, nacimientos, fechas, direcciones y más.
             Para entender la Numerología es necesario comprender el significado abstracto de los números, por éso vamos a ver una breve definición de cada uno:</p>
-          <div style={{height: '50vh'}}></div>
+          <div className="halfPage"></div>
         </div>
         <div className="col-1 col-sm-2"></div>
       </div>
@@ -77,7 +78,7 @@ export default function Home() {
         <div className="col-5 col-sm-4"></div>
         <div className="col-1 col-sm-2"></div>
       </div>
-      <div style={{height: '50vh'}}></div>
+      <div className="halfPage"></div>
       <div className="row">
         <div className="col-1 col-sm-2"></div>
         <div className="col-5 col-sm-4"></div>
@@ -98,7 +99,7 @@ export default function Home() {
         </div>
         <div className="col-1 col-sm-2"></div>
       </div>
-      <div style={{height: '50vh'}}></div>
+      <div className="halfPage"></div>
       <div className="row">
         <div className="col-1 col-sm-2"></div>
         <div className="col-5 col-sm-4">
@@ -119,7 +120,7 @@ export default function Home() {
         <div className="col-5 col-sm-4"></div>
         <div className="col-1 col-sm-2"></div>
       </div>
-      <div style={{height: '50vh'}}></div>
+      <div className="halfPage"></div>
       <div className="row">
         <div className="col-1 col-sm-2"></div>
         <div className="col-5 col-sm-4"></div>
@@ -140,7 +141,7 @@ export default function Home() {
         </div>
         <div className="col-1 col-sm-2"></div>
       </div>
-      <div style={{height: '50vh'}}></div>
+      <div className="halfPage"></div>
       <div className="row">
         <div className="col-1 col-sm-2"></div>
         <div className="col-5 col-sm-4">
@@ -161,7 +162,7 @@ export default function Home() {
         <div className="col-5 col-sm-4"></div>
         <div className="col-1 col-sm-2"></div>
       </div>
-      <div style={{height: '50vh'}}></div>
+      <div className="halfPage"></div>
       <div className="row">
         <div className="col-1 col-sm-2"></div>
         <div className="col-5 col-sm-4"></div>
@@ -182,7 +183,7 @@ export default function Home() {
         </div>
         <div className="col-1 col-sm-2"></div>
       </div>
-      <div style={{height: '50vh'}}></div>
+      <div className="halfPage"></div>
       <div className="row">
         <div className="col-1 col-sm-2"></div>
         <div className="col-5 col-sm-4">
@@ -203,7 +204,7 @@ export default function Home() {
         <div className="col-5 col-sm-4"></div>
         <div className="col-1 col-sm-2"></div>
       </div>
-      <div style={{height: '50vh'}}></div>
+      <div className="halfPage"></div>
       <div className="row">
         <div className="col-1 col-sm-2"></div>
         <div className="col-5 col-sm-4"></div>
@@ -224,7 +225,7 @@ export default function Home() {
         </div>
         <div className="col-1 col-sm-2"></div>
       </div>
-      <div style={{height: '50vh'}}></div>
+      <div className="halfPage"></div>
       <div className="row">
         <div className="col-1 col-sm-2"></div>
         <div className="col-5 col-sm-4">
@@ -245,7 +246,7 @@ export default function Home() {
         <div className="col-5 col-sm-4"></div>
         <div className="col-1 col-sm-2"></div>
       </div>
-      <div style={{height: '50vh'}}></div>
+      <div className="halfPage"></div>
       <div className="row">
         <div className="col-1 col-sm-2"></div>
         <div className="col-5 col-sm-4"></div>
@@ -256,7 +257,7 @@ export default function Home() {
         </div>
         <div className="col-1 col-sm-2"></div>
       </div>
-      <div style={{height: '50vh'}}></div>
+      <div className="halfPage"></div>
     </main>
   )
 }
