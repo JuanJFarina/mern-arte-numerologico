@@ -8,9 +8,15 @@ body {
   width: 100vw;
   overflow-x: hidden;
   background-image: url('./assets/background.webp');
-  background-size: 100% auto;
-  background-repeat: repeat-y;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-attachment: fixed;
+  background-size: cover;
   color: #fff !important;
+}
+
+.halfPage {
+  height: 50vh;
 }
 
 div {

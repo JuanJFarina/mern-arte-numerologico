@@ -1,14 +1,14 @@
-import React, { useState } from 'react';
+import React, { useState, useCallback } from 'react';
 import { AppBar, Toolbar, Typography, Button, Grid, IconButton, Drawer, List, ListItemButton, ListItemText } from '@mui/material';
 import { Link } from 'react-router-dom';
 import MenuIcon from '@mui/icons-material/Menu';
 
-function Header() {
+const Header = React.memo(() => {
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
 
-  const toggleDrawer = () => {
-    setIsDrawerOpen(!isDrawerOpen);
-  };
+  const toggleDrawer = useCallback(() => {
+    setIsDrawerOpen((prevIsDrawerOpen) => !prevIsDrawerOpen);
+  }, [setIsDrawerOpen]);
 
   return (
     <AppBar position="static" className="appBar" id="top">
@@ -69,6 +69,6 @@ function Header() {
       </Toolbar>
     </AppBar>
   );
-}
+});
 
 export default Header;
