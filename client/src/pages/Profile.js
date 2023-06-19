@@ -26,7 +26,7 @@ const Profile = React.memo(() => {
             <RegisterForm />
           )}
           {!user ? (
-            <Button variant="contained" color="primary" onClick={handleToggleForm}>
+            <Button style={{display:'block', margin:'5px auto'}} variant="contained" color="primary" onClick={handleToggleForm}>
               {toLogin ? 'Crear cuenta' : 'Iniciar sesión'}
             </Button>
           ) : ''}

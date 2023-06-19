@@ -119,9 +119,15 @@ export default function DataCard() {
         }
     }
 
+    const toggleData = () => {
+        const card = document.querySelector('.dataCard');
+        card.classList.toggle('open');
+    };
+
   return (
     <div className="dataCard">
-        <h3>Mis Datos \/</h3>
+        <h3 onClick={toggleData}>Mis Datos \/</h3>
+        <p>Email: {user.useremail}</p>
         <p>Nombre completo:
             <span>{!editName ? ' ' + user.name + ' ' : (
                 <TextField

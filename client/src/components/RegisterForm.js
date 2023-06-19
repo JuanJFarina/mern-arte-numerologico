@@ -64,10 +64,10 @@ function RegisterForm() {
         fullWidth
         margin="normal"
       />
-      <Button type="submit" variant="contained" color="primary" disabled={useremail === '' || password === ''}>
+      <div style={{color:'red', fontWeight:'bold', textAlign:'center', height:'30px'}}>{errorMsg}</div>
+      <Button style={{display:'block', margin:'0px auto'}} type="submit" variant="contained" color="primary" disabled={useremail === '' || password === ''}>
         Registrar
       </Button>
-      <span style={{color:'red'}}>{errorMsg}</span>
     </form>
   );
 }
