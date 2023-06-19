@@ -8,7 +8,6 @@ body {
   width: 100vw;
   overflow-x: hidden;
   background-image: url('./assets/background.webp');
-  background-repeat: no-repeat;
   background-attachment: fixed;
   background-size: cover;
   color: #fff !important;
@@ -269,6 +268,13 @@ main h1 {
   height: 50px;
   background: linear-gradient(to top, rgba(0, 0, 0, 1), transparent);
   pointer-events: none;
+}
+
+@media screen and (min-width: 768px) {
+  /* For WebKit-based browsers */
+  ::-webkit-scrollbar {
+    display: none;
+  }
 }
 
 @media only screen and (max-width: 719px) {
