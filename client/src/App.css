@@ -31,6 +31,27 @@ div {
   margin: 0 !important;
 }
 
+.symbols {
+  width: 100%;
+  filter: invert(100%) drop-shadow(0 0 4px #fff);
+  animation: blink 4s ease-in-out infinite;
+}
+
+@keyframes blink {
+  0% {
+    opacity: 1;
+    filter: invert(100%) drop-shadow(0 0 8px #fff);
+  }
+  50% {
+    opacity: 0.4;
+    filter: invert(100%) drop-shadow(0 0 4px #fff);
+  }
+  100% {
+    opacity: 1;
+    filter: invert(100%) drop-shadow(0 0 8px #fff);
+  }
+}
+
 .container-fluid {
   margin: 0px;
   padding: 0px !important;
@@ -227,6 +248,9 @@ main h1 {
 }
 
 @media only screen and (max-width: 576px) {
+  .symbols {
+    margin-top: 20%;
+  }
   .numeroDelDia {
     font-size: 2rem;
   }
