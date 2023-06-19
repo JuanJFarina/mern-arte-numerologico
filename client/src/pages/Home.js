@@ -2,6 +2,15 @@ import React, { useContext } from 'react';
 import Sidebar from '../components/Sidebar.js';
 import { reducir, sumar } from '../components/Numerology.js';
 import { AuthContext } from '../components/AuthContext.js';
+import symbOne from '../assets/1-Circulo.webp';
+import symbTwo from '../assets/2-Vesica-Piscis.webp';
+import symbThree from '../assets/3-Triangulo.webp';
+import symbFour from '../assets/4-Tetraedro.webp';
+import symbFive from '../assets/5-Pentagono.webp';
+import symbSix from '../assets/6-Magendavid.webp';
+import symbSeven from '../assets/7-Dios.webp';
+import symbEight from '../assets/8-Infinito.webp';
+import symbNine from '../assets/9-Merkabah.webp';
 
 const date = new Date();
 const dia = date.getDate();
@@ -79,13 +88,17 @@ export default function Home() {
             </dl>
           </section>
         </div>
-        <div className="col-5 col-sm-4"></div>
+        <div className="col-5 col-sm-4">
+          <img src={symbOne} className="symbols" alt="Circulo" />
+        </div>
         <div className="col-1 col-sm-2"></div>
       </div>
       <div className="halfPage"></div>
       <div className="row">
         <div className="col-1 col-sm-2"></div>
-        <div className="col-5 col-sm-4"></div>
+        <div className="col-5 col-sm-4">
+          <img src={symbTwo} className="symbols" alt="Vesica Piscis" />
+        </div>
         <div className="col-5 col-sm-4">
           <section>
             <h2 id="section2">El Número 2</h2>
@@ -125,13 +138,17 @@ export default function Home() {
             </dl>
           </section>
         </div>
-        <div className="col-5 col-sm-4"></div>
+        <div className="col-5 col-sm-4">
+          <img src={symbThree} className="symbols" alt="Triangulo" />
+        </div>
         <div className="col-1 col-sm-2"></div>
       </div>
       <div className="halfPage"></div>
       <div className="row">
         <div className="col-1 col-sm-2"></div>
-        <div className="col-5 col-sm-4"></div>
+        <div className="col-5 col-sm-4">
+          <img src={symbFour} className="symbols" alt="Tetraedro" />
+        </div>
         <div className="col-5 col-sm-4">
           <section>
             <h2 id="section4">El Número 4</h2>
@@ -171,13 +188,17 @@ export default function Home() {
             </dl>
           </section>
         </div>
-        <div className="col-5 col-sm-4"></div>
+        <div className="col-5 col-sm-4">
+          <img src={symbFive} className="symbols" alt="Pentagono" />
+        </div>
         <div className="col-1 col-sm-2"></div>
       </div>
       <div className="halfPage"></div>
       <div className="row">
         <div className="col-1 col-sm-2"></div>
-        <div className="col-5 col-sm-4"></div>
+        <div className="col-5 col-sm-4">
+          <img src={symbSix} className="symbols" alt="Triangulos Invertidos" />
+        </div>
         <div className="col-5 col-sm-4">
           <section>
             <h2 id="section6">El Número 6</h2>
@@ -217,13 +238,17 @@ export default function Home() {
             </dl>
           </section>
         </div>
-        <div className="col-5 col-sm-4"></div>
+        <div className="col-5 col-sm-4">
+          <img src={symbSeven} className="symbols" alt="Divinidad" />
+        </div>
         <div className="col-1 col-sm-2"></div>
       </div>
       <div className="halfPage"></div>
       <div className="row">
         <div className="col-1 col-sm-2"></div>
-        <div className="col-5 col-sm-4"></div>
+        <div className="col-5 col-sm-4">
+          <img src={symbEight} className="symbols" alt="Infinito" />
+        </div>
         <div className="col-5 col-sm-4">
           <section>
             <h2 id="section8">El Número 8</h2>
@@ -263,7 +288,9 @@ export default function Home() {
             </dl>
           </section>
         </div>
-        <div className="col-5 col-sm-4"></div>
+        <div className="col-5 col-sm-4">
+          <img src={symbNine} className="symbols" alt="Merkabah" />
+        </div>
         <div className="col-1 col-sm-2"></div>
       </div>
       <div className="halfPage"></div>
