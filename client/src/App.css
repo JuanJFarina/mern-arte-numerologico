@@ -9,7 +9,6 @@ body {
   overflow-x: hidden;
   background-image: url('./assets/background.webp');
   background-repeat: no-repeat;
-  background-position: center;
   background-attachment: fixed;
   background-size: cover;
   color: #fff !important;
@@ -215,6 +214,40 @@ main h1 {
   height: 20px !important;
 }
 
+.userGreet {
+  text-align: center;
+  margin: 50px auto;
+}
+
+.dataCard {
+  position: relative;
+  z-index: 2;
+  padding: 4px;
+  border-radius: 8px;
+  background-color: rgba(0,0,0,0.8);
+  margin: 50px 10px 0 0 !important;
+  max-height: 42px;
+  overflow: hidden;
+  transition: max-height 0.4s ease-in-out;
+}
+
+.dataCard.open {
+  max-height: 200px;
+}
+
+.dataCard h3 {
+  border-radius: 4px;
+  text-align: center;
+  background-color: rgba(255,255,255,0.2);
+  transition: filter 0.1s;
+  cursor: pointer;
+  user-select: none;
+}
+
+.dataCard h3:hover {
+  filter: drop-shadow(0 0 2px #fff);
+}
+
 .loading {
   animation: rotate360 0.5s steps(8) infinite;
 }
@@ -248,6 +281,9 @@ main h1 {
 }
 
 @media only screen and (max-width: 576px) {
+  .dataCard {
+    max-height: 36px;
+  }
   .symbols {
     margin-top: 20%;
   }
@@ -272,5 +308,9 @@ main h1 {
   .sidebar {
     left: 0px;
     opacity: 1;
+  }
+  .userGreet {
+    font-size: 2rem;
+    margin: 30px auto;
   }
 }

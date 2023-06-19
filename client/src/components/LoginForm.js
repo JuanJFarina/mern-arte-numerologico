@@ -66,11 +66,11 @@ function LoginForm() {
         fullWidth
         margin="normal"
       />
-      <div style={{color:'red'}}>{errorMsg}</div>
-      <Button type="submit" variant="contained" color="primary" disabled={useremail === '' || password === ''}>
+      <div style={{color:'red', fontWeight:'bold', textAlign:'center', height:'30px'}}>{errorMsg}</div>
+      <Button style={{display:'block', margin:'0px auto'}} type="submit" variant="contained" color="primary" disabled={useremail === '' || password === ''}>
         Ingresar
       </Button>
-      <Button variant="contained" color="primary" onClick={resetPassword} disabled={useremail.length < 8}>
+      <Button style={{display:'block', margin:'5px auto'}} variant="contained" color="primary" onClick={resetPassword} disabled={useremail.length < 8}>
         Olvidé mi contraseña
       </Button>
     </form>

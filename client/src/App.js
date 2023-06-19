@@ -12,6 +12,13 @@ import BirthdateNumbers from './pages/BirthdateNumbers';
 import CoupleNumbers from './pages/CoupleNumbers';
 import Profile from './pages/Profile';
 
+function updateParallax() {
+  const parallax = document.querySelector('body');
+  const scrollPosition = window.scrollY;
+  parallax.style.backgroundPositionY = scrollPosition * -0.1 + 'px';
+}
+window.addEventListener('scroll', updateParallax);
+
 function App() {
 
   return (

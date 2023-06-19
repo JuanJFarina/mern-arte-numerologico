@@ -13,8 +13,7 @@ export default function ProfData() {
 
   return (
     <div>
-        <h1 style={{textAlign:"center"}}>Hola !</h1>
-        <p>Usuario {user.useremail}</p>
+        <h1 className="userGreet">Hola {user.name} !</h1>
         <p>Ahora que tienes un perfil puedes acceder a un numeroscopio personal completo, incluyendo:</p>
         <ul>
             <li>Análisis de personalidad</li>
@@ -23,7 +22,7 @@ export default function ProfData() {
         </ul>
         <p>Además puedes almacenar tu propio historial de numeroscopios y reutilizarlo rápidamente</p>
         <DataCard />
-        <Button variant="contained" color="primary" onClick={logoutHandler}>
+        <Button style={{display:'block', margin:'10px auto'}} variant="contained" color="primary" onClick={logoutHandler}>
           Cerrar sesión
         </Button>
     </div>
