@@ -218,7 +218,7 @@ router.post('/forgotPassword', async (req, res) => {
       to: useremail,
       from: 'juanjosefarina.jjf@gmail.com',
       subject: 'Reset Contraseña',
-      html: `Por favor haz clic en el enlace para setear temporalmente tu contraseña a "accesoTemporal": <a href="https://mern-arte-numerologico-apis.vercel.app/api/resetPassword/${token}">Reset Contraseña</a>`,
+      html: `Por favor haz clic en el enlace para setear temporalmente tu contraseña a "accesoTemporal": <a href="https://mern-arte-numerologico-apis.vercel.app/api/resetPassword/${token}">Reset Contraseña</a>`
     };
 
     console.log(msg);
