@@ -53,9 +53,9 @@ export default function Home() {
         <div className="col-10 col-sm-8">
           <div style={{height: '20vh'}}></div>
           <h1 className="numeroDelDia">Hoy es un día {todaysNumber} !</h1><br /> <br />
-          <p style={{textAlign:'center'}}>&diams; {diaText[todaysNumber-1]}</p>
+          <p style={{textAlign:'center', fontWeight:'700'}}>&diams; {diaText[todaysNumber-1]}</p>
           {
-            user ? <p style={{textAlign:'center'}}>&diams; {diaPersonal[personalNumber-1]} </p> : <p style={{textAlign:'center',fontSize:"10px"}}> (recuerda que es importante analizar esto siempre en conjunto con tus propios números)</p>
+            user ? <p style={{textAlign:'center', fontWeight:'700'}}>&diams; {diaPersonal[personalNumber-1]} </p> : <p style={{textAlign:'center',fontSize:"10px"}}> (recuerda que es importante analizar esto siempre en conjunto con tus propios números)</p>
           }
           <div className="halfPage"></div>
           <section>
