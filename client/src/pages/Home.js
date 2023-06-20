@@ -296,7 +296,9 @@ export default function Home() {
       <div className="halfPage"></div>
       <div className="row">
         <div className="col-1 col-sm-2"></div>
-        <div className="col-5 col-sm-4"></div>
+        <div className="col-5 col-sm-4">
+          <img src={symbOne} className="zero" alt="Circulo" />
+        </div>
         <div className="col-5 col-sm-4">
           <section>
             <h2 id="section00">El Número 0</h2>
