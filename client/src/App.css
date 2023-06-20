@@ -282,7 +282,7 @@ main h1 {
   .numeroDelDia {
     font-size: 2rem;
     letter-spacing: 0;
-    box-shadow: 0 0 0 0;
+    box-shadow: 0 0 4px 4px #fff;
     background-color: transparent;
   }
   p {
