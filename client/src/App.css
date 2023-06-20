@@ -35,8 +35,24 @@ div {
 
 .symbols {
   width: 100%;
-  filter: invert(100%) drop-shadow(0 0 4px #fff);
-  animation: blink 4s ease-in-out infinite;
+  animation: blink 2s ease-in-out alternate-reverse infinite;
+}
+
+.zero {
+  width: 100%;
+  filter: drop-shadow(0 0 4px #000);
+  animation: zero 2s ease-in-out alternate-reverse infinite;
+}
+
+@keyframes zero {
+  0% {
+    opacity: 1;
+    filter: drop-shadow(0 0 8px #000);
+  }
+  100% {
+    opacity: 0.4;
+    filter: drop-shadow(0 0 4px #000);
+  }
 }
 
 @keyframes blink {
@@ -44,13 +60,9 @@ div {
     opacity: 1;
     filter: invert(100%) drop-shadow(0 0 8px #fff);
   }
-  50% {
+  100% {
     opacity: 0.4;
     filter: invert(100%) drop-shadow(0 0 4px #fff);
-  }
-  100% {
-    opacity: 1;
-    filter: invert(100%) drop-shadow(0 0 8px #fff);
   }
 }
 
