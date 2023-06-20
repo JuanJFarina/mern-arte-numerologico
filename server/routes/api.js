@@ -205,7 +205,6 @@ router.post('/history', async (req, res) => {
 });
 
 router.post('/forgotPassword', async (req, res) => {
-  try {
     const { useremail } = req.body;
 
     console.log(useremail);
@@ -225,10 +224,6 @@ router.post('/forgotPassword', async (req, res) => {
     console.log(msg);
 
     sgMail.send(msg);
-  }
-  catch (error) {
-    console.log("Ocurrió un error dentro del bloque Try: " + error);
-  }
 });
 
 router.post('/resetPassword', async (req, res) => {
