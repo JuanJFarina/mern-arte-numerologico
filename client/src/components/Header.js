@@ -15,7 +15,7 @@ const Header = React.memo(() => {
       <Toolbar className="toolbar">
         <Grid container alignItems="center">
           <Grid item xs={6} sm={4}>
-            <Typography variant="h6" className="title">
+            <Typography variant="h6" className="title" fontFamily="Redressed">
               Arte Numerológico
             </Typography>
           </Grid>
