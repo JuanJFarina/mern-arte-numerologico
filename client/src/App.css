@@ -283,6 +283,7 @@ main h1 {
     font-size: 2rem;
     letter-spacing: 0;
     text-shadow: 0 0 8px #fff;
+    box-shadow: 0 0 0 0;
     padding: 0;
     background-color: transparent;
   }
