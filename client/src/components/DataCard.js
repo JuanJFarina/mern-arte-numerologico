@@ -126,7 +126,7 @@ export default function DataCard() {
 
   return (
     <div className="dataCard">
-        <h3 onClick={toggleData}>Mis Datos \/</h3>
+        <h3 onClick={toggleData}>Mis Datos &darr;</h3>
         <p>Email: {user.useremail}</p>
         <p>Nombre completo:
             <span>{!editName ? ' ' + user.name + ' ' : (
