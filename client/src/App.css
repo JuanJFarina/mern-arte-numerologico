@@ -13,6 +13,10 @@ body {
   color: #fff !important;
 }
 
+.drawer {
+  background-color: rgba(255,255,255,0.2);
+}
+
 section {
   position: relative;
   z-index: 1;
@@ -110,8 +114,10 @@ div {
 
 .title {
   flex-grow: 1;
-  margin-right: 2px;
-  font-size: 30px !important;
+  margin: -10px -10px -10px 0px !important;
+  font-size: 50px !important;
+  color: #000;
+  animation: blink 4s ease-in-out infinite;
 }
 
 .navLink {
@@ -306,7 +312,7 @@ main h1 {
     display: flex;
   }
   .title {
-    font-size: 20px !important;
+    font-size: 25px !important;
   }
   .navLink {
     display: none !important;

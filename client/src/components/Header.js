@@ -44,7 +44,19 @@ const Header = React.memo(() => {
               </Button>
 
               {/* Mobile drawer */}
-              <Drawer anchor="right" open={isDrawerOpen} onClose={toggleDrawer}>
+              <Drawer
+                anchor="right"
+                open={isDrawerOpen}
+                onClose={toggleDrawer}
+                PaperProps={{
+                  style: {
+                    backgroundColor: 'rgba(255,255,255,0.2)',
+                    backdropFilter: 'blur(4px)',
+                    color: '#fff',
+                    fontWeight: '900 !important'
+                  }
+                }}
+              >
                 <List>
                   <ListItemButton component={Link} to="/" onClick={toggleDrawer}>
                     <ListItemText primary="Inicio" />
