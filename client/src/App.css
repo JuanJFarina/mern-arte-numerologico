@@ -10,7 +10,7 @@ body {
   background-image: url('./assets/background.webp');
   background-attachment: fixed;
   background-size: cover;
-  color: #fff !important;
+  color: #000 !important;
 }
 
 .drawer {
