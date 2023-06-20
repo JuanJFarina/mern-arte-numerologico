@@ -33,7 +33,7 @@ const diaPersonal = [
   "Tu día personal es 2, así que aprovecha bien tu paciencia extra",
   "Tu día personal es 3, hoy quizás expreses más de lo habitual o tengas mucha euforia, así que diviértete !",
   "Tu día personal es 4, revisa el día universal y tus deberes del día. Hoy es para hacer lo correcto y/o organizar",
-  "Tu día personal es 5, así que quizás sea difícil decir algo sobre tu día; tendrás ganas de hacer cosas distintas !",
+  "Tu día personal es 5, así que quizás sea difícil decir algo sobre tu día; será un día distinto !",
   "Tu día personal es 6, tu detallismo brillará hoy, ponlo en uso según el día universal !",
   "Tu día personal es 7, no te encierres demasiado pero quizás hoy pienses y reflexiones más de lo habitual",
   "Tu día personal es 8, la potencia del infinito vibra contigo hoy, tú puedes !",
