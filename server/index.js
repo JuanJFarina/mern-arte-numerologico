@@ -6,8 +6,6 @@ const apiRoutes = require('./routes/api.js');
 
 const mongoose = require('mongoose');
 
-const MONGODB_URI = 'mongodb://localhost/redacted' || process.env.MONGODB_URI;
-
 try {
   mongoose
     .connect(MONGODB_URI, { useNewUrlParser: true, useUnifiedTopology: true })
