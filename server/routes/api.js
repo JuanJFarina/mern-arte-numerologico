@@ -213,7 +213,7 @@ router.post('/forgotPassword', async (req, res) => {
       to: useremail,
       from: 'juanjosefarina.jjf@gmail.com',
       subject: 'Reset Contraseña',
-      html: `Por favor haz clic en el enlace para setear temporalmente tu contraseña a "accesoTemporal": <a href="https://mern-arte-numerologico-apis.vercel.app/api/resetPassword?token=$${token}">Reset Contraseña</a>`
+      html: `Por favor haz clic en el enlace para setear temporalmente tu contraseña a "accesoTemporal": <a href="https://mern-arte-numerologico-apis.vercel.app/api/resetPassword?token=${token}">Reset Contraseña</a>`
     };
 
     sgMail.send(msg);
@@ -221,8 +221,8 @@ router.post('/forgotPassword', async (req, res) => {
     res.json({'message':'Everything OK', 'email': msg});
 });
 
-router.post('/resetPassword', async (req, res) => {
-  const { token } = req.query; // Retrieve the token from query parameters instead of req.body
+router.post('/resetPassword/:token', async (req, res) => {
+  const { token } = req.params.token; // Retrieve the token from query parameters instead of req.body
 
   const email = decrypt(token);
 
