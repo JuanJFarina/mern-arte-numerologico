@@ -213,7 +213,7 @@ router.post('/forgotPassword', async (req, res) => {
       to: useremail,
       from: 'juanjosefarina.jjf@gmail.com',
       subject: 'Reset Contraseña',
-      html: `Por favor haz clic en el enlace para setear temporalmente tu contraseña a "accesoTemporal": <a href="https://mern-arte-numerologico-apis.vercel.app/api/resetPassword/${token}">Reset Contraseña</a>`
+      html: `Por favor haz clic en el enlace para setear temporalmente tu contraseña a "accesoTemporal": <a href="https://mern-arte-numerologico-apis.vercel.app/api/resetPassword?token=$${token}">Reset Contraseña</a>`
     };
 
     sgMail.send(msg);
@@ -226,12 +226,20 @@ router.post('/resetPassword', async (req, res) => {
 
   const email = decrypt(token);
 
-  const updatedUser = await User.findOneAndUpdate(
-    { useremail: email },
-    { $set: { password: 'accesoTemporal' } },
-    { new: true }
-    );
-    res.json(updatedUser);
+  try {
+    const user = await User.findOne({ useremail: email });
+    if (!user) {
+      return res.status(404).json({ error: 'User not found' });
+    }
+
+    user.password = 'accesoTemporal'; // Set the new password
+
+    await user.save(); // The 'pre('save')' middleware will hash the password before saving
+
+    res.json(user);
+  } catch (error) {
+    res.status(500).json({ error: 'Internal Server Error' });
+  }
 });
 
 module.exports = router;

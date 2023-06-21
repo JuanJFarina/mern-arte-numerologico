@@ -38,7 +38,10 @@ function LoginForm() {
   const resetPassword = async (e) => {
     e.preventDefault();
     await axios.post('https://mern-arte-numerologico-apis.vercel.app/api/forgotPassword', { useremail: useremail })
-    .then(response => console.log(response))
+    .then(response => {
+      console.log(response);
+      setErrorMsg('El email fue enviado correctamente, por favor revisa también la carpeta de Spam');
+    })
     .catch(response => console.log(response));
   }
 
