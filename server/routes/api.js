@@ -226,6 +226,8 @@ router.post('/resetPassword', async (req, res) => {
 
   const email = decrypt(token);
 
+  console.log(email);
+
   try {
     const user = await User.findOne({ useremail: email });
     if (!user) {
@@ -235,6 +237,8 @@ router.post('/resetPassword', async (req, res) => {
     user.password = 'accesoTemporal'; // Set the new password
 
     await user.save(); // The 'pre('save')' middleware will hash the password before saving
+
+    console.log(user);
 
     res.json(user);
   } catch (error) {
