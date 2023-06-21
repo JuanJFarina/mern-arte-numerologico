@@ -6,8 +6,6 @@ const apiRoutes = require('./routes/api.js');
 
 const mongoose = require('mongoose');
 
-const MONGODB_URI = 'mongodb+srv://vercel-admin-user:nBXBL5H34RrmHSEk@cluster0.gxpghrm.mongodb.net/myFirstDatabase?retryWrites=true&w=majority' || process.env.MONGODB_URI;
-
 try {
   mongoose
     .connect(MONGODB_URI, { useNewUrlParser: true, useUnifiedTopology: true })
