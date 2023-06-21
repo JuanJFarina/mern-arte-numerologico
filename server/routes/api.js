@@ -224,6 +224,8 @@ router.post('/forgotPassword', async (req, res) => {
     console.log(msg);
 
     sgMail.send(msg);
+
+    res.json({'message':'Everything OK'});
 });
 
 router.post('/resetPassword', async (req, res) => {
