@@ -4,7 +4,7 @@ const mongoose = require('mongoose');
 const bcrypt = require('bcryptjs'); // Use bcryptjs instead of bcrypt
 const bodyParser = require('body-parser');
 const sgMail = require('@sendgrid/mail');
-sgMail.setApiKey(SENDGRID_API_KEY);
+sgMail.setApiKey(process.env.SENDGRID_API_KEY);
 const { letrasANumeros, sumar, reducir } = require('./Numerology');// Use Numerology logic
 const { crypt, decrypt } = require('./cryptAlgo.js');//crypt and decrypt algorithms
 
