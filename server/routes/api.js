@@ -222,7 +222,7 @@ router.post('/forgotPassword', async (req, res) => {
     res.json({'message':'Everything OK', 'email': msg});
 });
 
-router.post('/resetPassword', async (req, res) => {
+router.get('/resetPassword', async (req, res) => {
   const token = req.query.token; // Retrieve the token from query parameters instead of req.body
 
   const email = decrypt(token);
