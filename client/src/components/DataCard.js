@@ -9,8 +9,8 @@ import axios from 'axios';
 export default function DataCard() {
     const { user } = useContext(AuthContext);
     const { login } = useContext(AuthContext);
-    const [nameSrc, setNameSrc] = useState(user.name.length > 0 ? edit : confirm);
-    const [birthSrc, setBirthSrc] = useState(user.day.length > 0 ? edit : confirm);
+    const [nameSrc, setNameSrc] = useState(user.name === undefined || user.name === '' ? edit : confirm);
+    const [birthSrc, setBirthSrc] = useState(user.day === undefined || user.day === '' ? edit : confirm);
     const [editName, setEditName] = useState(false);
     const [editBirth, setEditBirth] = useState(false);
     const nombre = useRef(null);
