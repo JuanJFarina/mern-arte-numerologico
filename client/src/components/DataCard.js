@@ -73,8 +73,12 @@ export default function DataCard() {
             setNameSrc(confirm);
             setEditName(true);
         }
-        else {
+        else if(nameSrc === confirm) {
             handleName();
+        }
+        else {
+            setNameSrc(confirm);
+            setEditName(true);
         }
     }
 
@@ -83,8 +87,12 @@ export default function DataCard() {
             setBirthSrc(confirm);
             setEditBirth(true);
         }
-        else {
+        else if(birthSrc === confirm) {
             handleBirth();
+        }
+        else {
+            setBirthSrc(confirm);
+            setEditBirth(true);
         }
     }
 
