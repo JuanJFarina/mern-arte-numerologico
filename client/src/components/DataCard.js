@@ -9,8 +9,8 @@ import axios from 'axios';
 export default function DataCard() {
     const { user } = useContext(AuthContext);
     const { login } = useContext(AuthContext);
-    const [nameSrc, setNameSrc] = useState(user.name ? edit : confirm);
-    const [birthSrc, setBirthSrc] = useState(user.day ? edit : confirm);
+    const [nameSrc, setNameSrc] = useState(user.name.length > 0 ? edit : confirm);
+    const [birthSrc, setBirthSrc] = useState(user.day.length > 0 ? edit : confirm);
     const [editName, setEditName] = useState(false);
     const [editBirth, setEditBirth] = useState(false);
     const nombre = useRef(null);
@@ -79,6 +79,7 @@ export default function DataCard() {
         else {
             setNameSrc(confirm);
             setEditName(true);
+            document.getElementById("nameIcon").classList.remove("loading");
         }
     }
 
@@ -93,6 +94,7 @@ export default function DataCard() {
         else {
             setBirthSrc(confirm);
             setEditBirth(true);
+            document.getElementById("birthIcon").classList.remove("loading");
         }
     }
 
