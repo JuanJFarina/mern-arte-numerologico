@@ -10,7 +10,7 @@ export default function DataCard() {
     const { user } = useContext(AuthContext);
     const { login } = useContext(AuthContext);
     const [nameSrc, setNameSrc] = useState(user.name === undefined || user.name === '' ? edit : confirm);
-    const [birthSrc, setBirthSrc] = useState(user.day === undefined || user.day === '' ? edit : confirm);
+    const [birthSrc, setBirthSrc] = useState(user.day === undefined || user.day === '0' ? edit : confirm);
     const [editName, setEditName] = useState(false);
     const [editBirth, setEditBirth] = useState(false);
     const nombre = useRef(null);
