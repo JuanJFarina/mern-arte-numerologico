@@ -1,15 +1,16 @@
-import React, { useRef, useState } from 'react';
+import React, { useState } from 'react';
 import { TextField, Button } from '@mui/material';
 import { reducir, sumar } from '../components/Numerology.js';
+import InterpretationCard from '../components/InterpretationCard.js';
 
 export default function BirthdateNumbers() {
   const [dia, setDia] = useState('');
   const [mes, setMes] = useState('');
   const [anio, setAnio] = useState('');
-  const resultados = useRef(null);
+  const [resultado, setResultado] = useState(null);
 
   const handleClick = () => {
-    resultados.current.innerHTML = 'Número de Vida: ' + reducir(sumar([dia,mes,anio]));
+    setResultado(reducir(sumar([dia,mes,anio])));
   }
 
   const handleDay = (e) => {
@@ -74,7 +75,7 @@ export default function BirthdateNumbers() {
       <div className="row">
         <div className="col-1 col-sm-2"></div>
         <div className="col-10 col-sm-8">
-          <Button variant="contained" onClick={handleClick} style={{display:'block', margin:'10px auto'}}>Calcular</Button>
+          <Button variant="contained" onClick={handleClick} style={{display:'block', margin:'10px auto'}} disabled={dia === '' || mes === '' || anio === ''}>Calcular</Button>
           <p style={{fontSize:'12px'}}>* Puede utilizar esta herramienta para conocer números de distintas fechas con otros propósitos como organizar fiestas, reuniones, etc.</p>
         </div>
         <div className="col-1 col-sm-2"></div>
@@ -84,7 +85,18 @@ export default function BirthdateNumbers() {
         <div className="col-10 col-sm-8">
           <hr />
           <h2 style={{textAlign:'center'}}>Resultados</h2>
-          <p ref={resultados} />
+          {!resultado ? (
+            <p className="emptyResults">Ingresa una fecha de nacimiento y calcula para ver la interpretacion.</p>
+          ) : (
+            <div className="interpretationGrid">
+              <InterpretationCard
+                label="Yo Espiritual"
+                number={resultado}
+                path="birthdate/yo-espiritual"
+                description="Calculado a partir de la fecha de nacimiento."
+              />
+            </div>
+          )}
         </div>
         <div className="col-1 col-sm-2"></div>
       </div>

@@ -211,6 +211,65 @@ main h1 {
   height: 20px !important;
 }
 
+.emptyResults {
+  text-align: center;
+  font-size: 0.9rem;
+  opacity: 0.8;
+}
+
+.interpretationGrid {
+  display: grid;
+  gap: 16px;
+  margin: 16px 0 32px !important;
+}
+
+.interpretationCard {
+  position: relative;
+  z-index: 1;
+  padding: 16px;
+  border-radius: 8px;
+  background-color: rgba(0,0,0,0.8);
+  border: 1px solid rgba(255,255,255,0.25);
+  box-shadow: 0 0 6px rgba(255,255,255,0.15);
+}
+
+.interpretationHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 8px !important;
+}
+
+.interpretationLabel {
+  font-size: 1.25rem;
+  font-weight: 700;
+}
+
+.interpretationNumber {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  min-width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  font-size: 1.5rem;
+  font-weight: 700;
+  background-color: rgba(255,255,255,0.18);
+  box-shadow: inset 0 0 4px rgba(255,255,255,0.5);
+}
+
+.interpretationDescription {
+  margin-bottom: 12px !important;
+  font-size: 0.85rem;
+  opacity: 0.8;
+}
+
+.interpretationText {
+  white-space: pre-wrap;
+  line-height: 1.5;
+}
+
 .userGreet {
   text-align: center;
   margin: 50px auto;
