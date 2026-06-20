@@ -22,6 +22,9 @@ export default function InterpretationCard({ label, number, path, description })
         if (!response.ok) {
           throw new Error(`Interpretation not found: ${interpretationPath}`);
         }
+        if (response.headers.get('content-type')?.includes('text/html')) {
+          throw new Error(`Interpretation resolved to HTML: ${interpretationPath}`);
+        }
         return response.text();
       })
       .then((text) => {

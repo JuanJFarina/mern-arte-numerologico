@@ -13,6 +13,7 @@
     { "src": "/couple-numbers", "dest": "client/index.html" },
     { "src": "/profile", "dest": "client/index.html" },
     { "src": "/static/(.*)", "dest": "client/static/$1" },
+    { "src": "/interpretations/(.*)", "dest": "client/interpretations/$1" },
     { "src": "/(.*)", "dest": "client/index.html" }
   ]
 }
